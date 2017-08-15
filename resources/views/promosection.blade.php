@@ -5,8 +5,8 @@
         <div class="">
             <div class="promo-box" style="color:#ffffff;">
                 <div class="promo-left">
-                    <h3 style="color:#ffffff;">Nấm linh chi Tiến Đạt</h3>
-                    Nấm linh chi được nuôi trồng tại nhà địa chỉ số 81 Nguyễn Văn Linh, Phường Mỹ Phước, <br>Thành phố Long Xuyên, Tỉnh An Giang
+                    <h3 style="color:#ffffff;">{{ $promotions->name }}</h3>
+                    {{ $promotions->note }}
                 </div>
 
                 <div class="promo-right">

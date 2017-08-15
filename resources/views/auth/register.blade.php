@@ -88,6 +88,7 @@
             <div class="panel-title text-center">
                 <h1 class="title">DNTN Tiến Đạt</h1>
                 <hr />
+                <h2>Đăng ký</h2>
             </div>
         </div>
         <div class="main-login main-center">

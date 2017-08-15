@@ -50,7 +50,7 @@
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{ Auth::user()->name }} <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Admin <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="#"><i class="fa fa-fw fa-user"></i> Thông tin</a>
@@ -94,6 +94,16 @@
                                 <a href="{{ url('admin/introduce') }}">Danh sách</a>
                             </li>
                         </ul>
+                    </li>
+                    <li>
+                        <a href="{{ url('admin/promotion') }}">
+                            <i class="fa fa-fw fa-header"></i>Khuyến mãi
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url('admin/product') }}">
+                            <i class="fa fa-fw fa-header"></i>Sản phẩm
+                        </a>
                     </li>
                 </ul>
             </div>

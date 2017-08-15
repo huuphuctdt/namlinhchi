@@ -121,8 +121,11 @@
                         @endif
                     </div>
                 </div>
-                <div class="form-group ">
+                <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Đăng nhập</button>
+                </div>
+                <div class="form-group text-center">
+                    <a href="{{ url('register') }}">Đăng ký</a>
                 </div>
             </form>
         </div>

@@ -13,12 +13,9 @@
 
 Route::get('/', 'MasterController@index');
 
-
-Route::get('admin',function (){
-    return view('admin.index');
-});
 Route::group(['middleware' => 'auth'], function () {
     Route::prefix('admin')->group(function () {
+        Route::get('/',function (){return view('admin.index');});
         Route::get('logo', 'HeaderController@index');
         Route::post('header/update', 'HeaderController@update');
         Route::get('menu', 'MenuController@index');
@@ -39,6 +36,13 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('introduce/delete','IntroductionController@delete');
         Route::get('introduce/{id}','IntroductionController@edit');
         Route::post('introduce/edit', 'IntroductionController@save_edit');
+        Route::get('promotion','PromotionController@index');
+        Route::get('promotion/{id}','PromotionController@edit');
+        Route::post('promotion/edit','PromotionController@save_edit');
+        Route::get('product','ProductController@index');
+        Route::get('product/create','ProductController@create');
+        Route::post('product/create_product','ProductController@create_product');
+        Route::post('product/delete','ProductController@delete');
     });
 });
 Auth::routes();
