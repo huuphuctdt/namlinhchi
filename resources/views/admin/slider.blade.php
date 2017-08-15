@@ -26,11 +26,11 @@
             </div>
         @endif
         @foreach($sliders as $slider)
-            <div class="row">
+            <div class="row form-group">
                 <div class="form-group">
                     <label class="control-label col-md-2" for="pwd">Slider {{ $loop->iteration }} : </label>
                     <div class="col-md-3 {{ $errors->has('caption') ? ' has-error' : '' }}">
-                        <input type="text" disabled class="form-control" id="caption" name="caption" placeholder="Enter caption..." value="{{ old('caption', $slider->caption) }}">
+                        <textarea disabled class="form-control" id="caption" name="caption" placeholder="Enter caption..." rows="5">{{ old('caption', $slider->caption) }}</textarea>
                         @if ($errors->has('caption'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('caption') }}</strong>
@@ -39,7 +39,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="col-md-12 form-group">
-                            <input type="text" disabled name="note" id="note" class="form-control" placeholder="Enter note..." value="{{ old('note', $slider->note) }}">
+                            <textarea disabled name="note" id="note" class="form-control" placeholder="Enter note..." rows="5">{{ old('note', $slider->note) }}</textarea>
                         </div>
                     </div>
                     <form class="form-horizontal" action="{{ url('admin/slider/delete') }}" method="post">

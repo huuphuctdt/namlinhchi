@@ -45,20 +45,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">SB Admin</a>
+                <a class="navbar-brand" href="index.html">Quản trị DNTN Tiến Đạt</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Admin <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{ Auth::user()->name }} <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                            <a href="#"><i class="fa fa-fw fa-user"></i> Thông tin</a>
                         </li>
                         <li class="divider"></li>
                         <li>
                             <a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                <i class="fa fa-fw fa-power-off"></i>Log Out</a>
+                                <i class="fa fa-fw fa-power-off"></i> Đăng xuất</a>
                             <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                                 {{ csrf_field() }}
                             </form>
@@ -69,9 +69,9 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li class="active">
+                    <li >
                         <a href="javascript:;" data-toggle="collapse" data-target="#ul1">
-                            <i class="fa fa-header"></i> Header <i class="fa fa-fw fa-caret-down"></i>
+                            <i class="fa fa-fw fa-header"></i>Header<i class="fa fa-fw fa-caret-down"></i>
                         </a>
                         <ul id="ul1" class="collapse">
                             <li>
@@ -87,14 +87,11 @@
                     </li>
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#ul2">
-                            <i class="fa fa-fw fa-arrows-v"></i> Menu <i class="fa fa-fw fa-caret-down"></i>
+                            <i class="fa fa-fw fa-header"></i>Giới thiệu<i class="fa fa-fw fa-caret-down"></i>
                         </a>
                         <ul id="ul2" class="collapse">
                             <li>
-                                <a href="#">Logo</a>
-                            </li>
-                            <li>
-                                <a href="#">Tag Line</a>
+                                <a href="{{ url('admin/introduce') }}">Danh sách</a>
                             </li>
                         </ul>
                     </li>

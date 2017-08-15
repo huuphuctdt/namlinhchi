@@ -33,6 +33,12 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('slider/delete', 'SliderController@delete');
         Route::get('slider/{id}', 'SliderController@edit');
         Route::post('slider/edit', 'SliderController@save_edit');
+        Route::get('introduce','IntroductionController@index');
+        Route::get('introduce/create','IntroductionController@create');
+        Route::post('introduce/create_introduce','IntroductionController@create_introduce');
+        Route::post('introduce/delete','IntroductionController@delete');
+        Route::get('introduce/{id}','IntroductionController@edit');
+        Route::post('introduce/edit', 'IntroductionController@save_edit');
     });
 });
 Auth::routes();
