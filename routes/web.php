@@ -43,6 +43,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('product/create','ProductController@create');
         Route::post('product/create_product','ProductController@create_product');
         Route::post('product/delete','ProductController@delete');
+        Route::get('product/{id}','ProductController@edit');
+        Route::post('product/edit','ProductController@save_edit');
     });
 });
 Auth::routes();

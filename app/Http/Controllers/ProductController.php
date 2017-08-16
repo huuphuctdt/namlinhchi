@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateProductRequest;
+use App\Http\Requests\EditProductRequest;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -50,6 +51,21 @@ class ProductController extends Controller
             return redirect('admin/product')->with(['flash_level' => 'success', 'flash_messages' => 'Xoá thành công!']);
         } else {
             return redirect('admin/product')->with(['flash_level' => 'danger', 'flash_messages' => 'Xoá thất bại!']);
+        }
+    }
+
+    public function edit($id){
+        $product = $this->product->getId($id);
+        $data['product'] = $product;
+        return view('admin.product-detail', $data);
+    }
+
+    public function save_edit(EditProductRequest $request){
+        $flag = $this->product->updateProduct($request);
+        if($flag){
+            return redirect('admin/product')->with(['flash_level' => 'success', 'flash_messages' => 'Cập nhật thành công!']);
+        }else{
+            return redirect('admin/product')->with(['flash_level' => 'danger', 'flash_messages' => 'Cập nhật thất bại!']);
         }
     }
 }
