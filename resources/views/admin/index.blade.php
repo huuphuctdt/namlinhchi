@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="{{ url('upload/favicon.png') }}"/>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -71,7 +72,7 @@
                 <ul class="nav navbar-nav side-nav">
                     <li >
                         <a href="javascript:;" data-toggle="collapse" data-target="#ul1">
-                            <i class="fa fa-fw fa-header"></i>Header<i class="fa fa-fw fa-caret-down"></i>
+                            <i class="fa fa-fw fa-header"></i> Header <i class="fa fa-fw fa-caret-down"></i>
                         </a>
                         <ul id="ul1" class="collapse">
                             <li>
@@ -86,23 +87,18 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#ul2">
-                            <i class="fa fa-fw fa-header"></i>Giới thiệu<i class="fa fa-fw fa-caret-down"></i>
+                        <a href="{{ url('admin/introduce') }}">
+                            <i class="fa fa-fw fa-th"></i> Giới thiệu
                         </a>
-                        <ul id="ul2" class="collapse">
-                            <li>
-                                <a href="{{ url('admin/introduce') }}">Danh sách</a>
-                            </li>
-                        </ul>
                     </li>
                     <li>
                         <a href="{{ url('admin/promotion') }}">
-                            <i class="fa fa-fw fa-header"></i>Khuyến mãi
+                            <i class="fa fa-fw fa-scissors"></i> Khuyến mãi
                         </a>
                     </li>
                     <li>
                         <a href="{{ url('admin/product') }}">
-                            <i class="fa fa-fw fa-header"></i>Sản phẩm
+                            <i class="fa fa-fw fa-th-list"></i> Sản phẩm
                         </a>
                     </li>
                 </ul>

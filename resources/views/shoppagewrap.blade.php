@@ -6,91 +6,38 @@
             <p>
             <div class="woocommerce columns-4">
                 <ul class="products">
-                    <li class="post-868 product type-product status-publish has-post-thumbnail product_cat-accessories first instock sale shipping-taxable purchasable product-type-simple">
-                        <a href="#" class="woocommerce-LoopProduct-link">
-                            <span class="onsale">Sale!</span>
-                            <img width="250" height="300" src="{{ url('upload/nam_linh_chi_1.jpg') }}"
-                                 class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="product01" title="product01"/>
-                            <h3>Bào tử Linh chi Nguyên chất 1kg</h3>
-                            <span class="price">
-                                    <del>
-                                        <span class="woocommerce-Price-amount amount">
-                                            8.000.000<span class="woocommerce-Price-currencySymbol"> VNĐ</span>
-                                        </span>
-                                    </del>
-                                    <ins>
-                                        <span class="woocommerce-Price-amount amount">
-                                            7.000.000<span class="woocommerce-Price-currencySymbol"> VNĐ</span>
-                                        </span>
-                                    </ins>
-                                </span>
-                        </a>
-                    </li>
-
-                    <li class="post-867 product type-product status-publish has-post-thumbnail product_cat-accessories  instock sale shipping-taxable purchasable product-type-simple">
-                        <a href="#" class="woocommerce-LoopProduct-link">
-                            <span class="onsale">Sale!</span>
-                            <img width="250" height="300" src="{{ url('upload/nam_linh_chi_2.jpg') }}"
-                                 class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="product02"
-                                 title="product02"/>
-                            <h3>Nấm linh chi đỏ</h3>
-                            <span class="price">
-                                    <del>
-                                        <span class="woocommerce-Price-amount amount">
-                                            1.000.000<span class="woocommerce-Price-currencySymbol"> VNĐ</span>
-                                        </span>
-                                    </del>
-                                    <ins>
-                                        <span class="woocommerce-Price-amount amount">
-                                            800.000<span class="woocommerce-Price-currencySymbol"> VNĐ</span>
-                                        </span>
-                                    </ins>
-                                </span>
-                        </a>
-                    </li>
-
-                    <li class="post-866 product type-product status-publish has-post-thumbnail product_cat-all-arts-crafts  instock sale shipping-taxable purchasable product-type-simple">
-                        <a href="#" class="woocommerce-LoopProduct-link">
-                            <span class="onsale">Sale!</span>
-                            <img width="250" height="300" src="{{ url('upload/nam_linh_chi_3.jpg') }}"
-                                 class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="product03" title="product03"/>
-                            <h3>Nấm linh chi đỏ</h3>
-                            <span class="price">
-                                   <del>
-                                        <span class="woocommerce-Price-amount amount">
-                                            1.000.000<span class="woocommerce-Price-currencySymbol"> VNĐ</span>
-                                        </span>
-                                    </del>
-                                    <ins>
-                                        <span class="woocommerce-Price-amount amount">
-                                            800.000<span class="woocommerce-Price-currencySymbol"> VNĐ</span>
-                                        </span>
-                                    </ins>
-                                </span>
-                        </a>
-                    </li>
-
-                    <li class="post-865 product type-product status-publish has-post-thumbnail product_cat-action-figures last instock sale shipping-taxable purchasable product-type-simple">
-                        <a href="#" class="woocommerce-LoopProduct-link">
-                            <span class="onsale">Sale!</span>
-                            <img width="250" height="300" src="{{ url('upload/nam_linh_chi_4.jpg') }}"
-                                 class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="product04"
-                                 title="product04"/>
-                            <h3>Nấm linh chi đỏ</h3>
-                            <span class="price">
-                                  <del>
-                                        <span class="woocommerce-Price-amount amount">
-                                            1.000.000<span class="woocommerce-Price-currencySymbol"> VNĐ</span>
-                                        </span>
-                                    </del>
-                                    <ins>
-                                        <span class="woocommerce-Price-amount amount">
-                                            800.000<span class="woocommerce-Price-currencySymbol"> VNĐ</span>
-                                        </span>
-                                    </ins>
-                                </span>
-                        </a>
-                    </li>
+                    @foreach($products as $product)
+                        @if($loop->iteration == 9) @break; @endif
+                        <li class="post-868 product type-product status-publish has-post-thumbnail product_cat-accessories @if($loop->iteration == 1 || $loop->iteration == 5) {{ 'frist' }} @endif @if($loop->iteration == 4 || $loop->iteration == 8) {{ 'last' }} @endif
+                                instock sale shipping-taxable purchasable product-type-simple">
+                            <a href="#" class="woocommerce-LoopProduct-link">
+                                <span class="onsale">Sale!</span>
+                                <img width="250" height="300" src="{{ url('upload/'.$product->image) }}"
+                                     class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="product01" title="product01"/>
+                                <h3>{{ $product->name }}</h3>
+                                <span class="price">
+                                        @if($product->new_price != '')
+                                            <del>
+                                                <span class="woocommerce-Price-amount amount">
+                                                    {{ number_format($product->old_price) }}<span class="woocommerce-Price-currencySymbol"> VNĐ</span>
+                                                </span>
+                                            </del>
+                                            <ins>
+                                                <span class="woocommerce-Price-amount amount">
+                                                    {{ number_format($product->new_price) }}<span class="woocommerce-Price-currencySymbol"> VNĐ</span>
+                                                </span>
+                                            </ins>
+                                        @else
+                                            <ins>
+                                                <span class="woocommerce-Price-amount amount">
+                                                    {{ number_format($product->old_price) }}<span class="woocommerce-Price-currencySymbol"> VNĐ</span>
+                                                </span>
+                                            </ins>
+                                        @endif
+                                    </span>
+                            </a>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
             <div class="custombtn" style="text-align:center">

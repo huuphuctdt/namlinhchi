@@ -15,7 +15,7 @@ Route::get('/', 'MasterController@index');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::prefix('admin')->group(function () {
-        Route::get('/',function (){return view('admin.index');});
+        Route::get('/', 'HeaderController@index');
         Route::get('logo', 'HeaderController@index');
         Route::post('header/update', 'HeaderController@update');
         Route::get('menu', 'MenuController@index');

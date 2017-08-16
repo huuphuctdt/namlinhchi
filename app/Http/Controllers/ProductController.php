@@ -24,6 +24,11 @@ class ProductController extends Controller
         return view('admin.product', $data);
     }
 
+    public function getAllProduct(){
+        $products = $this->product->getProduct();
+        return $products;
+    }
+
     public function create()
     {
         return view('admin.product-create');
