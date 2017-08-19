@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Test Admin</title>
+    <title>Quản trị - DNTN Tiến Đạt</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{ url('css/bootstrap.min.css') }}" rel="stylesheet">
@@ -100,6 +100,19 @@
                         <a href="{{ url('admin/product') }}">
                             <i class="fa fa-fw fa-th-list"></i> Sản phẩm
                         </a>
+                    </li>
+                    <li >
+                        <a href="javascript:;" data-toggle="collapse" data-target="#ulpost">
+                            <i class="fa fa-fw fa-th-large"></i> Bài viết <i class="fa fa-fw fa-caret-down"></i>
+                        </a>
+                        <ul id="ulpost" class="collapse">
+                            <li>
+                                <a href="{{ url('admin/post_category') }}">Danh mục</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('admin/post') }}">Bài viết</a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>

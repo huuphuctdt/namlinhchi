@@ -12,12 +12,13 @@ class MasterController extends Controller
     private $introductionController;
     private $promotionController;
     private $productionController;
+    private $postController;
     public function __construct(HeaderController $headerController,
                                 MenuController $menuController,
                                 SliderController $sliderController,
                                 IntroductionController $introductionController,
                                 PromotionController $promotionController,
-                                ProductController $productController)
+                                ProductController $productController,PostController $postController)
     {
         $this->headerController = $headerController;
         $this->menuController = $menuController;
@@ -25,6 +26,7 @@ class MasterController extends Controller
         $this->introductionController = $introductionController;
         $this->promotionController = $promotionController;
         $this->productionController = $productController;
+        $this->postController = $postController;
     }
 
     public function index(){
@@ -35,6 +37,7 @@ class MasterController extends Controller
         $data["intros"] = $this->introductionController->getAllIntro();
         $data["promotions"] = $this->promotionController->getAllPromotion();
         $data["products"] = $this->productionController->getAllProduct();
+        $data["posts"] = $this->postController->getAllPost();
         return view("master", $data);
     }
 }

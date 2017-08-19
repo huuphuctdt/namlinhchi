@@ -19,7 +19,7 @@ class CreateTablePost extends Migration
             $table->foreign('category_id')->references('id')->on('post_category');
             $table->string('image');
             $table->string('name');
-            $table->string('content');
+            $table->text('content');
             $table->integer('date');
             $table->string('month');
             $table->integer('year');
