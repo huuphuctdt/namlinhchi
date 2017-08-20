@@ -566,6 +566,7 @@
     @include('header')
     @include('slider-main')
     @include('pagearea')
+    @include('portfoliosection')
     @include('promosection')
     <?php
     //echo "@include('whoweareasection')";

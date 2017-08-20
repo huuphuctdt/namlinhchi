@@ -24,7 +24,7 @@ class CreateSliderRequest extends FormRequest
     public function rules()
     {
         return [
-            'image' => 'required|max:51200|image',
+            'image' => 'required|max:51200|image|dimensions:width=1920,height=999',
             'caption' => 'required',
             'note' => 'required',
         ];
@@ -36,6 +36,7 @@ class CreateSliderRequest extends FormRequest
             'image.required' => 'Image is required.',
             'image.max' => 'Upload file max is 50Mb',
             'image.image' => "Image isn't format",
+            'image.dimensions' => "Hình ảnh phải có width=1920px và height=999px",
             'caption.required' => 'Capiton is required',
             'note.required' => 'Note is required'
         ];
