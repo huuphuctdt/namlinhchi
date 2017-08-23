@@ -101,7 +101,7 @@
                             <i class="fa fa-fw fa-th-list"></i> Sản phẩm
                         </a>
                     </li>
-                    <li >
+                    <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#ulpost">
                             <i class="fa fa-fw fa-th-large"></i> Bài viết <i class="fa fa-fw fa-caret-down"></i>
                         </a>
@@ -113,6 +113,11 @@
                                 <a href="{{ url('admin/post') }}">Bài viết</a>
                             </li>
                         </ul>
+                    </li>
+                    <li>
+                        <a href="{{ url('admin/gallery') }}">
+                            <i class="fa fa-fw fa-camera"></i> Hình ảnh công ty
+                        </a>
                     </li>
                 </ul>
             </div>

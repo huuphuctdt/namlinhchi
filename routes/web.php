@@ -51,13 +51,20 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('post/delete','PostController@delete');
         Route::get('post/{id}','PostController@edit');
         Route::post('post/edit','PostController@save_edit');
-
+        //Post Category
         Route::get('post_category','PostCategoryController@index');
         Route::get('post_category/create','PostCategoryController@create');
         Route::post('post_category/create_post_category','PostCategoryController@create_post_category');
         Route::post('post_category/delete','PostCategoryController@delete');
         Route::get('post_category/{id}','PostCategoryController@edit');
         Route::post('post_category/edit','PostCategoryController@save_edit');
+        //Gallery
+        Route::get('gallery','GalleryController@index');
+        Route::get('gallery/create','GalleryController@create');
+        Route::post('gallery/create_gallery','GalleryController@create_gallery');
+        Route::post('gallery/delete','GalleryController@delete');
+        Route::get('gallery/{id}','GalleryController@edit');
+        Route::post('gallery/edit','GalleryController@save_edit');
     });
 });
 Auth::routes();

@@ -7,97 +7,105 @@
                     <li><a class="selected" data-filter="*" href="#">Tất cả</a><span></span></li>
                     <li><a data-filter=".image" href="#">Hình ảnh</a></li>
                     <li><a data-filter=".video" href="#">Video</a></li>
-                </ul><div class="row fourcol portfoliowrap">
+                </ul>
+                <div class="row fourcol portfoliowrap">
                     <div class="portfolio isotope" style="position: relative; overflow: hidden; height: 458px;">
-                        <div class="entry image" style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px);">
-                            <div class="holderwrap">
-                                <a class="hvr-grow" href="http://zylothemesdemo.com/zyloplus/wp-content/uploads/2017/02/blog2.jpg" data-rel="prettyPhoto[bkpGallery]">
-                                    <img src="http://zylothemesdemo.com/zyloplus/wp-content/uploads/2017/02/blog2.jpg" style="height: 219px; width: 282px;">
-                                </a>
-                                <h5>DNTN Tiến Đạt</h5>
-                            </div>
-                        </div>
-                        <div class="entry image" style="position: absolute; left: 0px; top: 0px; transform: translate3d(293px, 0px, 0px);">
-                            <div class="holderwrap">
-                                <a class="hvr-grow" href="http://zylothemesdemo.com/zyloplus/wp-content/uploads/2017/02/blog1.jpg" data-rel="prettyPhoto[bkpGallery]">
-                                    <img src="http://zylothemesdemo.com/zyloplus/wp-content/uploads/2017/02/blog1.jpg" style="height: 219px; width: 282px;">
-                                </a>
-                                <h5>DNTN Tiến Đạt</h5>
-                            </div>
-                        </div>
-                        <div class="entry video" style="position: absolute; left: 0px; top: 0px; transform: translate3d(586px, 0px, 0px); height: 229px;">
-                            <div class="holderwrap">
-                                <a class="hvr-grow" href="{{ url('upload/hinh1.jpg') }}" data-rel="prettyPhoto[bkpGallery]">
-                                    <img src="{{ url('upload/hinh1.jpg') }}" style="height: 219px; width: 282px;">
-                                </a>
-                                <h5>DNTN Tiến Đạt</h5>
-                            </div>
-                        </div>
-                        <div class="entry video" style="position: absolute; left: 0px; top: 0px; transform: translate3d(879px, 0px, 0px);">
-                            <div class="holderwrap">
-                                <a class="hvr-grow" class="video-link" id="myBtn1">
-                                    <img src="http://zylothemesdemo.com/zyloplus/wp-content/uploads/2017/02/blog3.jpg" style="height: 219px; width: 282px;">
-                                </a>
-                                <h5>DNTN Tiến Đạt</h5>
-                            </div>
-                        </div>
-                        <div class="entry video" style="position: absolute; left: 0px; top: 0px; transform: translate3d(879px, 0px, 0px);">
-                            <div class="holderwrap">
-                                <a class="hvr-grow" class="video-link" id="myBtn2">
-                                    <img src="http://zylothemesdemo.com/zyloplus/wp-content/uploads/2017/02/blog3.jpg" style="height: 219px; width: 282px;">
-                                </a>
-                                <h5>DNTN Tiến Đạt</h5>
-                            </div>
-                        </div>
-                        <div class="entry video" style="position: absolute; left: 0px; top: 0px; transform: translate3d(293px, 0px, 0px);">
-                            <div class="holderwrap">
-                                <a class="hvr-grow" class="video-link" id="myBtn3">
-                                    <img src="http://zylothemesdemo.com/zyloplus/wp-content/uploads/2017/02/blog3.jpg" style="height: 219px; width: 282px;">
-                                </a>
-                                <h5>DNTN Tiến Đạt</h5>
-                            </div>
-                        </div>
+                        <?php $stt = 0; ?>
+                        @foreach($gallerys as $gallery)
+                            <?php
+                            $path_info = pathinfo(url('upload/'.$gallery->image));
+                            ?>
+                            @if($path_info['extension'] == 'mp4')
+                                <div class="entry video" style="position: absolute; left: 0px; top: 0px; transform: translate3d(293px, 0px, 0px);">
+                                    <div class="holderwrap">
+                                        <a class="hvr-grow video-link" id="myBtn<?php echo ++$stt; ?>">
+                                            <img src="{{ url('images/video-camera.png') }}" style="height: 219px; width: 282px;">
+                                        </a>
+                                        <h5>{{ $gallery->name }}</h5>
+                                    </div>
+                                </div>
+                            @else
+                                <div class="entry image" style="position: absolute; left: 0px; top: 0px; transform: translate3d(586px, 0px, 0px);">
+                                    <div class="holderwrap">
+                                        <a class="hvr-grow" href="{{ url('upload/'.$gallery->image) }}" data-rel="prettyPhoto[bkpGallery]">
+                                            <img src="{{ url('upload/'.$gallery->image) }}" style="height: 219px; width: 282px;">
+                                        </a>
+                                        <h5>{{ $gallery->name }}</h5>
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
+
+                        {{--<div class="entry image" style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px);">--}}
+                            {{--<div class="holderwrap">--}}
+                                {{--<a class="hvr-grow" href="http://zylothemesdemo.com/zyloplus/wp-content/uploads/2017/02/blog2.jpg" data-rel="prettyPhoto[bkpGallery]">--}}
+                                    {{--<img src="http://zylothemesdemo.com/zyloplus/wp-content/uploads/2017/02/blog2.jpg" style="height: 219px; width: 282px;">--}}
+                                {{--</a>--}}
+                                {{--<h5>DNTN Tiến Đạt</h5>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<div class="entry image" style="position: absolute; left: 0px; top: 0px; transform: translate3d(293px, 0px, 0px);">--}}
+                            {{--<div class="holderwrap">--}}
+                                {{--<a class="hvr-grow" href="http://zylothemesdemo.com/zyloplus/wp-content/uploads/2017/02/blog1.jpg" data-rel="prettyPhoto[bkpGallery]">--}}
+                                    {{--<img src="http://zylothemesdemo.com/zyloplus/wp-content/uploads/2017/02/blog1.jpg" style="height: 219px; width: 282px;">--}}
+                                {{--</a>--}}
+                                {{--<h5>DNTN Tiến Đạt</h5>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<div class="entry video" style="position: absolute; left: 0px; top: 0px; transform: translate3d(586px, 0px, 0px); height: 229px;">--}}
+                            {{--<div class="holderwrap">--}}
+                                {{--<a class="hvr-grow" href="{{ url('upload/hinh1.jpg') }}" data-rel="prettyPhoto[bkpGallery]">--}}
+                                    {{--<img src="{{ url('upload/hinh1.jpg') }}" style="height: 219px; width: 282px;">--}}
+                                {{--</a>--}}
+                                {{--<h5>DNTN Tiến Đạt</h5>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<div class="entry video" style="position: absolute; left: 0px; top: 0px; transform: translate3d(879px, 0px, 0px);">--}}
+                            {{--<div class="holderwrap">--}}
+                                {{--<a class="hvr-grow" class="video-link" id="myBtn1">--}}
+                                    {{--<img src="http://zylothemesdemo.com/zyloplus/wp-content/uploads/2017/02/blog3.jpg" style="height: 219px; width: 282px;">--}}
+                                {{--</a>--}}
+                                {{--<h5>DNTN Tiến Đạt</h5>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<div class="entry video" style="position: absolute; left: 0px; top: 0px; transform: translate3d(879px, 0px, 0px);">--}}
+                            {{--<div class="holderwrap">--}}
+                                {{--<a class="hvr-grow" class="video-link" id="myBtn2">--}}
+                                    {{--<img src="http://zylothemesdemo.com/zyloplus/wp-content/uploads/2017/02/blog3.jpg" style="height: 219px; width: 282px;">--}}
+                                {{--</a>--}}
+                                {{--<h5>DNTN Tiến Đạt</h5>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<div class="entry video" style="position: absolute; left: 0px; top: 0px; transform: translate3d(293px, 0px, 0px);">--}}
+                            {{--<div class="holderwrap">--}}
+                                {{--<a class="hvr-grow" class="video-link" id="myBtn3">--}}
+                                    {{--<img src="http://zylothemesdemo.com/zyloplus/wp-content/uploads/2017/02/blog3.jpg" style="height: 219px; width: 282px;">--}}
+                                {{--</a>--}}
+                                {{--<h5>DNTN Tiến Đạt</h5>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
                     </div>
                 </div>
             </div>
         </div><!-- .end section class -->
-
-        <div id="myModal1" class="modal">
-
-            <!-- Modal content -->
-            <div class="modal-content">
-                <div class="modal-body">
-                    <video style="width: 100%;" controls muted>
-                        <source src="{{ url('/upload/video1.mp4') }}" type="video/mp4">
-                    </video>
+        <?php $stt_modal = 0;  ?>
+        @foreach($gallerys as $gallery)
+            <?php
+                $path_info = pathinfo(url('upload/'.$gallery->image));
+            ?>
+            @if($path_info['extension'] == 'mp4')
+                <div id="myModal<?php echo ++$stt_modal; ?>" class="modal">
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <video style="width: 100%;" controls muted>
+                                <source src="{{ url('upload/'.$gallery->image) }}" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-        </div>
-        <div id="myModal2" class="modal">
-
-            <!-- Modal content -->
-            <div class="modal-content">
-                <div class="modal-body">
-                    <video style="width: 100%;" controls muted>
-                        <source src="{{ url('/upload/video2.mp4') }}" type="video/mp4">
-                    </video>
-                </div>
-            </div>
-
-        </div>
-        <div id="myModal3" class="modal">
-
-            <!-- Modal content -->
-            <div class="modal-content">
-                <div class="modal-body">
-                    <video style="width: 100%;" controls muted>
-                        <source src="{{ url('/upload/video3.mp4') }}" type="video/mp4">
-                    </video>
-                </div>
-            </div>
-
-        </div>
+            @endif
+        @endforeach
         <style>
             /* The Modal (background) */
             .modal {
@@ -170,68 +178,96 @@
             }
         </style>
         <script>
-            // Get the modal
             jQuery(document).ready(function () {
-                var modal1 = document.getElementById('myModal1');
-                var modal2 = document.getElementById('myModal2');
-                var modal3 = document.getElementById('myModal3');
-
-                var btn1 = document.getElementById("myBtn1");
-                var btn2 = document.getElementById("myBtn2");
-                var btn3 = document.getElementById("myBtn3");
-
-
-                btn1.onclick = function() {
-                    modal1.style.display = "block";
-                    jQuery("video")[0].load();
-                    jQuery("video")[0].play();
-                    jQuery("video").prop('muted', true);
-
-                };
-                btn2.onclick = function() {
-                    modal2.style.display = "block";
-                    jQuery("video")[1].load();
-                    jQuery("video")[1].play();
-                    jQuery("video").prop('muted', true);
-
-                };
-                btn3.onclick = function() {
-                    modal3.style.display = "block";
-                    jQuery("video")[2].load();
-                    jQuery("video")[2].play();
-                    jQuery("video").prop('muted', true);
-
-                };
-
-                window.onclick = function(event) {
-                    if (event.target == modal1) {
-                        modal1.style.display = "none";
-                        jQuery("video").each(function () { this.pause() });
-                    }
-                    if (event.target == modal2) {
-                        modal2.style.display = "none";
-                        jQuery("video").each(function () { this.pause() });
-                    }
-                    if (event.target == modal3) {
-                        modal3.style.display = "none";
-                        jQuery("video").each(function () { this.pause() });
-                    }
-                };
-
-                jQuery(document).keyup(function(event) {
-                    if (event.keyCode == 27) {
-                        var modal1 = document.getElementById('myModal1');
-                        var modal2 = document.getElementById('myModal2');
-                        var modal3 = document.getElementById('myModal3');
-                        modal1.style.display = "none";
-                        modal2.style.display = "none";
-                        modal3.style.display = "none";
-                        jQuery("video").each(function () { this.pause() });
-                    }
+                jQuery('.video-link').click(function () {
+                    var modal_id = jQuery(this).attr('id');
+                   // alert(modal_id);
+                    var btn = document.getElementById(modal_id);
+                    btn.click(function () {
+                        alert('123123');
+                    });
                 });
-
-                jQuery("video").prop('muted', false);
             });
+            // Get the modal
+//            jQuery(document).ready(function () {
+//
+//
+//
+//                var modal1 = document.getElementById('myModal1');
+//                var modal2 = document.getElementById('myModal2');
+//                var modal3 = document.getElementById('myModal3');
+//                var modal4 = document.getElementById('myModal4');
+//
+//                var btn1 = document.getElementById("myBtn1");
+//                var btn2 = document.getElementById("myBtn2");
+//                var btn3 = document.getElementById("myBtn3");
+//                var btn4 = document.getElementById("myBtn4");
+//
+//
+//                btn1.onclick = function() {
+//                    modal1.style.display = "block";
+//                    jQuery("video")[0].load();
+//                    jQuery("video")[0].play();
+//                    jQuery("video").prop('muted', true);
+//
+//                };
+//                btn2.onclick = function() {
+//                    modal2.style.display = "block";
+//                    jQuery("video")[1].load();
+//                    jQuery("video")[1].play();
+//                    jQuery("video").prop('muted', true);
+//
+//                };
+//                btn3.onclick = function() {
+//                    modal3.style.display = "block";
+//                    jQuery("video")[2].load();
+//                    jQuery("video")[2].play();
+//                    jQuery("video").prop('muted', true);
+//
+//                };
+//                btn4.onclick = function() {
+//                    modal4.style.display = "block";
+//                    jQuery("video")[3].load();
+//                    jQuery("video")[3].play();
+//                    jQuery("video").prop('muted', true);
+//
+//                };
+//
+//                window.onclick = function(event) {
+//                    if (event.target == modal1) {
+//                        modal1.style.display = "none";
+//                        jQuery("video").each(function () { this.pause() });
+//                    }
+//                    if (event.target == modal2) {
+//                        modal2.style.display = "none";
+//                        jQuery("video").each(function () { this.pause() });
+//                    }
+//                    if (event.target == modal3) {
+//                        modal3.style.display = "none";
+//                        jQuery("video").each(function () { this.pause() });
+//                    }
+//                    if (event.target == modal4) {
+//                        modal4.style.display = "none";
+//                        jQuery("video").each(function () { this.pause() });
+//                    }
+//                };
+//
+//                jQuery(document).keyup(function(event) {
+//                    if (event.keyCode == 27) {
+//                        var modal1 = document.getElementById('myModal1');
+//                        var modal2 = document.getElementById('myModal2');
+//                        var modal3 = document.getElementById('myModal3');
+//                        var modal4 = document.getElementById('myModal4');
+//                        modal1.style.display = "none";
+//                        modal2.style.display = "none";
+//                        modal3.style.display = "none";
+//                        modal4.style.display = "none";
+//                        jQuery("video").each(function () { this.pause() });
+//                    }
+//                });
+//
+//                jQuery("video").prop('muted', false);
+//            });
 
         </script>
         <div class="clear"></div>
