@@ -119,6 +119,11 @@
                             <i class="fa fa-fw fa-camera"></i> Hình ảnh công ty
                         </a>
                     </li>
+                    <li>
+                        <a href="{{ url('admin/footer') }}">
+                            <i class="fa fa-fw fa-camera"></i> Footer
+                        </a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

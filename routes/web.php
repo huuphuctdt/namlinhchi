@@ -65,8 +65,13 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('gallery/delete','GalleryController@delete');
         Route::get('gallery/{id}','GalleryController@edit');
         Route::post('gallery/edit','GalleryController@save_edit');
+        //Footer
+        Route::get('footer','FooterController@index');
+        Route::get('footer/{id}','FooterController@edit');
+        Route::post('footer/edit','FooterController@save_edit');
     });
 });
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
