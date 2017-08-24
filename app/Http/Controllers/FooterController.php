@@ -24,4 +24,13 @@ class FooterController extends Controller
         $data['footer'] = $footer;
         return view('admin.footer-detail', $data);
     }
+
+    public function save_edit(Request $request){
+        $flag = $this->footer->updateFooter($request);
+        if($flag){
+            return redirect('admin/footer')->with(['flash_level' => 'success', 'flash_messages' => 'Cập nhật thành công!']);
+        }else{
+            return redirect('admin/footer')->with(['flash_level' => 'danger', 'flash_messages' => 'Cập nhật thất bại!']);
+        }
+    }
 }

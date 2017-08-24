@@ -25,7 +25,7 @@
                 {!! Session::get('flash_messages') !!}
             </div>
         @endif
-        <form class="form-group" action="{{ url('admin/introduce/edit') }}" method="post" enctype="multipart/form-data">
+        <form class="form-group" action="{{ url('admin/footer/edit') }}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div class="row form-group">
                 <div class="">

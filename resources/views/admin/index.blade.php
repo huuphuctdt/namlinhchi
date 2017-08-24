@@ -121,7 +121,7 @@
                     </li>
                     <li>
                         <a href="{{ url('admin/footer') }}">
-                            <i class="fa fa-fw fa-camera"></i> Footer
+                            <i class="fa fa-fw fa-address-card"></i> Footer
                         </a>
                     </li>
                 </ul>

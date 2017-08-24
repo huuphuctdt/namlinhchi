@@ -20,7 +20,7 @@ class Footer extends Model
         return $footer;
     }
 
-    public function updateHeader($request){
+    public function updateFooter($request){
         $flag = Footer::query()->update([
             'introduction' => $request->introduction,
             'address' => $request->address,
@@ -29,8 +29,8 @@ class Footer extends Model
             'facebook' => $request->facebook,
             'twitter' => $request->twitter,
             'linkedin' => $request->linkedin,
-            'google-plus' => $request->all('google-plus'),
-            'copy-right' => $request->all('copy-right')
+            'google-plus' => $request->all()['google-plus'],
+            'copy-right' => $request->all()['copy-right']
         ]);
         if($flag){
             return true;

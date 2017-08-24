@@ -24,6 +24,7 @@ class CreateTableFooter extends Migration
             $table->string('linkedin');
             $table->string('google-plus');
             $table->string('copy-right');
+            $table->timestamps();
         });
     }
 
