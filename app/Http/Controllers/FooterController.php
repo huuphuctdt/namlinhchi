@@ -19,6 +19,11 @@ class FooterController extends Controller
         return view('admin.footer',$data);
     }
 
+    public function getAllFooter(){
+        $footer = $this->footer->getFooter();
+        return $footer;
+    }
+
     public function edit($id){
         $footer = $this->footer->getId($id);
         $data['footer'] = $footer;

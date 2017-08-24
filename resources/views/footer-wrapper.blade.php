@@ -9,7 +9,7 @@
             <div class="cols-4">
                 <div class="widget-column-1">
                     <h5>Giới thiệu</h5>
-                    <p>DNTN Tiến Đạt Số 81 Nguyễn Văn Linh, Phường Mỹ Phước, Thành phố Long Xuyên, Tỉnh An Giang.</p>
+                    <p>{{ $footer->introduction }}</p>
                     <div class="clear"></div>
                 </div>
 
@@ -62,16 +62,16 @@
                 <div class="widget-column-4">
                     <h5>Liên hệ</h5>
                     <div class="contactdetail">
-                        <p><i class="fa fa-map-marker"></i> 81 Nguyễn Văn Linh, Phường Mỹ Phước, Thành phố Long Xuyên, Tỉnh An Giang</p>
-                        <p><i class="fa fa-phone"></i>+87 123 456 7890</p>
-                        <p><i class="fa fa-envelope"></i><a href="mailto:info@sitename.com">test@gmail.com</a></p>
+                        <p><i class="fa fa-map-marker"></i> {{ $footer->address }}</p>
+                        <p><i class="fa fa-phone"></i>{{ $footer->phone }}</p>
+                        <p><i class="fa fa-envelope"></i><a href="mailto:{{ $footer->email }}">{{ $footer->email }}</a></p>
                     </div>
 
                     <div class="social-icons">
-                        <a href="#" target="_blank" class="fa fa-facebook" title="facebook"></a>
-                        <a href="#" target="_blank" class="fa fa-twitter" title="twitter"></a>
-                        <a href="#" target="_blank" class="fa fa-linkedin" title="linkedin"></a>
-                        <a href="#" target="_blank" class="fa fa-google-plus" title="google-plus"></a>
+                        <a href="{{ $footer->facebook }}" target="_blank" class="fa fa-facebook" title="facebook"></a>
+                        <a href="{{ $footer->twitter }}" target="_blank" class="fa fa-twitter" title="twitter"></a>
+                        <a href="{{ $footer->linkedin }}" target="_blank" class="fa fa-linkedin" title="linkedin"></a>
+                        <a href="{{ $footer->getAttribute('google-plus') }}" target="_blank" class="fa fa-google-plus" title="google-plus"></a>
                     </div>
 
                 </div>
@@ -85,7 +85,7 @@
 
         <div class="copyright-wrapper">
             <div class="container">
-                <div class="copyright-txt"> Copyright &copy; 2017. All rights reserved</div>
+                <div class="copyright-txt">{{ $footer->getAttribute('copy-right') }}</div>
             </div>
             <div class="clear"></div>
             </div>
