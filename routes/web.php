@@ -74,4 +74,7 @@ Route::group(['middleware' => 'auth'], function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
+//Gallery User
+Route::get('/hinh-anh-cong-ty.html','MasterPageController@index');
+Route::get('/san-pham.html','MasterPageController@index_product');
+Route::get('/tin-tuc/{category}/{title}.html', 'MasterPageController@post_detail');

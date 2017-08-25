@@ -21,7 +21,12 @@ class Gallery extends Model
     }
 
     public function getAllGallery(){
-        $gallerys = Gallery::all();
+        $gallerys = Gallery::orderBy('created_at','desc')->get();
+        return $gallerys;
+    }
+
+    public function getLimitGallery($limit){
+        $gallerys = Gallery::orderBy('created_at','desc')->offset(0)->limit($limit)->get();
         return $gallerys;
     }
 

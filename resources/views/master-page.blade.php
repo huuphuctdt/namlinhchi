@@ -562,22 +562,20 @@
 </head>
 
 <body id="top" class="home blog">
-<div class="sitewrapper ">
-    @include('header')
-    @include('slider-main')
-    @include('pagearea')
-    @include('portfoliosection')
-    @include('promosection')
-    <?php
-    //echo "@include('whoweareasection')";
-    ?>
-    <?php
-    //echo " @include('background1')";
-    ?>
-    @include('shoppagewrap')
-    @include('newswraper')
-    @include('ourclients')
-    @include('footer-wrapper')
+<div class="sitewrapper">
+    @include('header-page')
+    <div class="innerbanner">
+        <img src="http://zylothemesdemo.com/zyloplus/wp-content/themes/zylo-pro/images/inner-banner.jpg" alt="">
+    </div>
+    @if(!empty($gallerys))
+        @include('gallery')
+    @endif
+    @if(!empty($products))
+        @include('product')
+    @endif
+    @if(!empty($post))
+        @include('post-detail')
+    @endif
     <div id="back-top">
         <a title="Top of Page" href="#top"><span></span></a>
     </div>
@@ -614,19 +612,6 @@
             jQuery(document).on('click', '#link_6', function () {
                 scrollToAnchor('ourclients');
             });
-            var hash = window.location.hash;
-            if(hash != ''){
-                switch (hash){
-                    case "#link_1": scrollToAnchorHome('slider-main'); break;
-                    case "#link_2": scrollToAnchor('pagearea'); break;
-                    case "#link_3": scrollToAnchor('whoweareasection'); break;
-                    case "#link_4": scrollToAnchor('shoppagewrap'); break;
-                    case "#btn-mua-ngay": scrollToAnchor('shoppagewrap'); break;
-                    case "#link_5": scrollToAnchor('newswraper'); break;
-                    case "#link_6": scrollToAnchor('ourclients'); break;
-                    default: break;
-                }
-            }
         });
     </script>
 </div>

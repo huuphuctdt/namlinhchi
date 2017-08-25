@@ -45,7 +45,7 @@ class MasterController extends Controller
         $data["promotions"] = $this->promotionController->getAllPromotion();
         $data["products"] = $this->productionController->getAllProduct();
         $data["posts"] = $this->postController->getAllPost();
-        $data["gallerys"] = $this->galleryController->getAllGallery();
+        $data["gallerys"] = $this->galleryController->getLimitGallery();
         $data["footer"] = $this->footerController->getAllFooter();
         return view("master", $data);
     }

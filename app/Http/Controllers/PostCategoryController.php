@@ -22,6 +22,11 @@ class PostCategoryController extends Controller
         return view('admin.postcategory',$data);
     }
 
+    public function getAllCategory(){
+        $post_category = $this->post_category->getPostCategory();
+        return $post_category;
+    }
+
     public function create(){
         return view('admin.postcategory-create');
     }

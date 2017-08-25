@@ -8,18 +8,18 @@
                         @if($loop->iteration == 5) @break; @endif
                         <div class="news-box @if($loop->iteration == 4) {{ 'last' }} @endif">
                             <div class="news-thumb">
-                                <a class="hvr-grow" href="#">
+                                <a class="hvr-grow" href="{{ url('/tin-tuc/'.str_slug($post->post_category->name).'/'.str_slug($post->name).'-'.$post->id.'.html') }}">
                                     <img src="{{ url('/upload/'.$post->image) }}" alt=" "/>
                                 </a>
                                 <div class="postdt"><span>{{ $post->date }}</span> {{ $post->month }}</div>
                             </div>
                             <div class="newsdesc">
-                                <h6><a href="#">{{ $post->name }}</a></h6>
+                                <h6><a href="{{ url('/tin-tuc/'.str_slug($post->post_category->name).'/'.str_slug($post->name).'-'.$post->id.'.html') }}">{{ $post->name }}</a></h6>
                                 <div class="PostMeta">
-                                    <span>Đăng bởi : <a href="#">DNTN Tiến Đạt</a></span>
+                                    <span>Đăng bởi : <a href="{{ url('/') }}">DNTN Tiến Đạt</a></span>
                                 </div>
                                 <p>{{ $post->content }}</p>
-                                <a class="buttonstyle1" href="#">Đọc thêm</a>
+                                <a class="buttonstyle1" href="{{ url('/tin-tuc/'.str_slug($post->post_category->name).'/'.str_slug($post->name).'-'.$post->id.'.html') }}">Đọc thêm</a>
                             </div>
                             <div class="clear"></div>
                         </div>

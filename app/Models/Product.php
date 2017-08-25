@@ -11,7 +11,7 @@ class Product extends Model
     protected $fillable = ['image','name','description','old_price','new_price','read_more'];
 
     public function getProduct(){
-        $products = Product::all();
+        $products = Product::orderBy('created_at','desc')->get();
         return $products;
     }
 

@@ -27,6 +27,11 @@ class GalleryController extends Controller
         return $gallerys;
     }
 
+    public function getLimitGallery(){
+        $gallerys = $this->gallery->getLimitGallery(8);
+        return $gallerys;
+    }
+
     public function create(){
         return view('admin.gallery-create');
     }

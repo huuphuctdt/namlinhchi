@@ -16,7 +16,6 @@
                             $array = [0,293,586,879];
                             $k = array_rand($array);
                             $v = $array[$k]; ?>
-                            @if($loop->iteration == 9) @break; @endif
                             @if($path_info['extension'] == 'mp4')
                                 <div class="entry video" style="position: absolute; left: 0px; top: 0px; transform: translate3d(<?php echo $v ?>px, 0px, 0px);">
                                     <div class="holderwrap">
@@ -40,7 +39,7 @@
                     </div>
                 </div>
                 <div class="custombtn" style="text-align:center">
-                    <a class="pagemore" href="#" target="">Xem hình ảnh</a>
+                    <a class="pagemore" href="{{ url('hinh-anh-cong-ty.html') }}" target="">Xem hình ảnh</a>
                 </div>
             </div>
         </div><!-- .end section class -->
