@@ -69,6 +69,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('footer','FooterController@index');
         Route::get('footer/{id}','FooterController@edit');
         Route::post('footer/edit','FooterController@save_edit');
+
     });
 });
 Auth::routes();
@@ -78,3 +79,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/hinh-anh-cong-ty.html','MasterPageController@index');
 Route::get('/san-pham.html','MasterPageController@index_product');
 Route::get('/tin-tuc/{category}/{title}.html', 'MasterPageController@post_detail');
+//Post-all
+Route::get('/tin-tuc/{category}','MasterPageController@post_all');

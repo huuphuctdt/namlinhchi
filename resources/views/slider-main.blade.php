@@ -8,7 +8,7 @@
     <div id="slidecaption{{ $loop->iteration }}" class="nivo-html-caption">
         <a href="{{ ($slider->read_more) != '' ? $slider->read_more : "/" }}"><h2>{{ $slider->caption }}</h2></a>
         <p>{{ $slider->note }}</p>
-        <a class="button" href="{{ ($slider->read_more) != '' ? $slider->read_more : "/" }}">Read More </a>
+        <a class="button" href="#" id="link_2">Xem thêm</a>
     </div>
 @endforeach
 </div><!-- slider -->

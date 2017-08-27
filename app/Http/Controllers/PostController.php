@@ -30,6 +30,16 @@ class PostController extends Controller
         return $posts;
     }
 
+    public function getAllPostCategory($category){
+        $posts = $this->post->getPostCategory($category);
+       return $posts;
+    }
+
+    public function getNamePostCategory($category){
+        $name_postcategory = $this->post->getNamePostCategory($category);
+        return $name_postcategory;
+    }
+
     public function getPostDetail($id){
         $post = $this->post->getId($id);
         return $post;

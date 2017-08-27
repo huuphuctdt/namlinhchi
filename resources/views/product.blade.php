@@ -2,7 +2,7 @@
     <header class="entry-header">
         <h1 class="entry-title">Sản phẩm</h1>
     </header><!-- .entry-header -->
-    <div class="shopwrap">
+    <div class="">
         <p>
         <div class="woocommerce columns-4">
             <ul class="products">

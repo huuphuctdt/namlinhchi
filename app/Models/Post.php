@@ -81,4 +81,17 @@ class Post extends Model
             }
         }
     }
+
+    public function getPostCategory($category){
+        $category_name = str_slug($category);
+        $posts = Post::whereHas('post_category', function ($query) use ($category_name) {
+            $query->where('name_slug', 'like', "%".$category_name."%");
+        })->paginate(5);
+        return $posts;
+    }
+
+    public function getNamePostCategory($category){
+        $name = Post_Category::where('name_slug', 'like', "%".$category."%")->first();
+        return $name->name;
+    }
 }

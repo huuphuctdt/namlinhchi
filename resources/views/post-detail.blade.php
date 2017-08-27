@@ -16,7 +16,7 @@
                              sizes="(max-width: 375px) 100vw, 375px"></div>
                         <div class="content-post">{{ $post->content }}</div>
                         <div class="postmeta">
-                            <div class="post-categories"><a href="http://zylothemesdemo.com/zyloplus/category/uncategorized/" title="View all posts in Uncategorized">Uncategorized</a></div>
+                            <div class="post-categories"><a href="{{ url('/tin-tuc/'.str_slug($post->post_category->name)) }}" title="{{ $post->post_category->name }}">{{ $post->post_category->name }}</a></div>
                             <div class="post-tags"> </div>
                             <div class="clear"></div>
                         </div><!-- postmeta -->
@@ -35,7 +35,7 @@
         </div>
         <div id="sidebar">
             @foreach($post_category as $post_cate)
-            <h3 class="widget-title">{{ $post_cate->name }}</h3>
+            <a href="{{ url('/tin-tuc/'.str_slug($post->post_category->name)) }}"><h3 class="widget-title">{{ $post_cate->name }}</h3></a>
             <aside id="%1$s" class="widget %2$s">
                 <ul>
                     @foreach($post_cate->post as $item)
