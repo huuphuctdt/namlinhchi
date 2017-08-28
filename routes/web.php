@@ -81,3 +81,4 @@ Route::get('/san-pham.html','MasterPageController@index_product');
 Route::get('/tin-tuc/{category}/{title}.html', 'MasterPageController@post_detail');
 //Post-all
 Route::get('/tin-tuc/{category}','MasterPageController@post_all');
+Route::get('/gioi-thieu-{id}.html','MasterPageController@intro_detail');

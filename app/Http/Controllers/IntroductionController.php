@@ -21,6 +21,11 @@ class IntroductionController extends Controller
         return $intros;
     }
 
+    public function getId($id){
+        $intro = $this->introduction->getId($id);
+        return $intro;
+    }
+
     public function index(){
         $intros = $this->introduction->getIntroduction();
         $data['intros'] = $intros;

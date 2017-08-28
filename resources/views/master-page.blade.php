@@ -569,20 +569,20 @@
     </div>
     @if(!empty($gallerys))
         @include('gallery')
-        @include('footer-wrapper')
     @endif
     @if(!empty($products))
         @include('product')
-        @include('footer-wrapper')
     @endif
     @if(!empty($post))
         @include('post-detail')
-        @include('footer-wrapper')
     @endif
     @if(!empty($post_all))
         @include('post')
-        @include('footer-wrapper')
     @endif
+    @if(!empty($intro_detail))
+        @include('intro-detail')
+    @endif
+    @include('footer-wrapper')
     <div id="back-top">
         <a title="Top of Page" href="#top"><span></span></a>
     </div>

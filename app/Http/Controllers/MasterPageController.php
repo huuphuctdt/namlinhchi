@@ -12,11 +12,14 @@ class MasterPageController extends Controller
     private $postController;
     private $postCategoryController;
     private $footerController;
+    private $introductionController;
     public function __construct(HeaderController $headerController,
                                 GalleryController $galleryController,
                                 ProductController $productController,
                                 PostController $postController,
-                                PostCategoryController $postCategoryController, FooterController $footerController)
+                                PostCategoryController $postCategoryController,
+                                FooterController $footerController,
+                                IntroductionController $introductionController)
     {
         $this->headerController = $headerController;
         $this->galleryController = $galleryController;
@@ -24,6 +27,7 @@ class MasterPageController extends Controller
         $this->postController = $postController;
         $this->postCategoryController = $postCategoryController;
         $this->footerController = $footerController;
+        $this->introductionController = $introductionController;
     }
 
     public function index(){
@@ -57,6 +61,14 @@ class MasterPageController extends Controller
         $data["header"] = $this->headerController->getAllHeader();
         $data["post_all"] = $post_all;
         $data["category"] = $category;
+        $data["footer"] = $this->footerController->getAllFooter();
+        return view("master-page",$data);
+    }
+
+    public function intro_detail($id){
+        $intro_detail = $this->introductionController->getId($id);
+        $data["intro_detail"] = $intro_detail;
+        $data["header"] = $this->headerController->getAllHeader();
         $data["footer"] = $this->footerController->getAllFooter();
         return view("master-page",$data);
     }
