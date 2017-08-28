@@ -69,7 +69,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('footer','FooterController@index');
         Route::get('footer/{id}','FooterController@edit');
         Route::post('footer/edit','FooterController@save_edit');
-
+        //Admin Show
+        Route::get('admin-show','AdminShowController@index');
+        Route::post('change-is-show','AdminShowController@change_isShow');
     });
 });
 Auth::routes();

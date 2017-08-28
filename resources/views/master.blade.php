@@ -563,8 +563,12 @@
 
 <body id="top" class="home blog">
 <div class="sitewrapper ">
-    @include('header')
-    @include('slider-main')
+    @if(!empty($header))
+        @include('header')
+    @endif
+    @if(!empty($sliders))
+        @include('slider-main')
+    @endif
     @include('pagearea')
     @include('portfoliosection')
     @include('promosection')
