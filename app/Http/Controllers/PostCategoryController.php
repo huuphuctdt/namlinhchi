@@ -7,6 +7,7 @@ use App\Http\Requests\EditPostCategoryRequest;
 use App\Models\Post;
 use App\Models\Post_Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PostCategoryController extends Controller
 {
@@ -60,11 +61,20 @@ class PostCategoryController extends Controller
         if($post_category->id == 1) {
             return false;
         }
-        $flag = Post::where('category_id',$post_category->id)->update(['category_id' => 1]);
-        $flag1 = $post_category->delete();
-        if ($flag && $flag1) {
-            return redirect('admin/post_category')->with(['flash_level' => 'success', 'flash_messages' => 'Xoá thành công!']);
-        } else {
+        DB::beginTransaction();
+        try {
+            Post::where('category_id', $post_category->id)->update(['category_id' => 1]);
+            $flag1 = $post_category->delete();
+            DB::commit();
+
+            if ($flag1) {
+                return redirect('admin/post_category')->with(['flash_level' => 'success', 'flash_messages' => 'Xoá thành công!']);
+            } else {
+                return redirect('admin/post_category')->with(['flash_level' => 'danger', 'flash_messages' => 'Xoá thất bại!']);
+            }
+
+        }catch (\Exception $exception){
+            DB::rollback();
             return redirect('admin/post_category')->with(['flash_level' => 'danger', 'flash_messages' => 'Xoá thất bại!']);
         }
     }

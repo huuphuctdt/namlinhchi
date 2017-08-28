@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Post_Category extends Model
 {
     protected $table = 'post_category';
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'name_slug'];
 
     public function post(){
         return $this->hasMany('App\Models\Post','category_id');
@@ -19,7 +19,7 @@ class Post_Category extends Model
     }
 
     public function createPostCategory($request){
-        $flag = Post_Category::create(['name' => trim($request->name)]);
+        $flag = Post_Category::create(['name' => trim($request->name), 'name_slug' => trim(str_slug($request->name))]);
         if($flag){
             return true;
         }else{
@@ -33,7 +33,7 @@ class Post_Category extends Model
     }
 
     public function updatePostCategory($request){
-        $flag = Post_Category::where('id',$request->po_post_category_id)->update(['name' => trim($request->name)]);
+        $flag = Post_Category::where('id',$request->po_post_category_id)->update(['name' => trim($request->name), 'name_slug' => trim(str_slug($request->name))]);
         if($flag){
             return true;
         }else{
