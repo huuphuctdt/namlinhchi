@@ -41,7 +41,7 @@
         </div>
         <div id="sidebar" style="float:left;">
             @foreach($post_category as $post_cate)
-                <a href="{{ url('/tin-tuc/'.str_slug($post->post_category->name)) }}"><h3 class="widget-title">{{ $post_cate->name }}</h3></a>
+                <a href="{{ url('/tin-tuc/'.str_slug($post_cate->name)) }}"><h3 class="widget-title">{{ $post_cate->name }}</h3></a>
                 <aside id="%1$s" class="widget %2$s">
                     <ul>
                         @foreach($post_cate->post as $item)
