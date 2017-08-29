@@ -563,25 +563,37 @@
 
 <body id="top" class="home blog">
 <div class="sitewrapper ">
-    @if(!empty($header))
+    @if($header != null)
         @include('header')
     @endif
-    @if(!empty($sliders))
+    @if($sliders != null)
         @include('slider-main')
     @endif
-    @include('pagearea')
-    @include('portfoliosection')
-    @include('promosection')
+    @if($intros != null)
+        @include('pagearea')
+        @include('portfoliosection')
+    @endif
+    @if($promotions != null)
+        @include('promosection')
+    @endif
     <?php
     //echo "@include('whoweareasection')";
     ?>
     <?php
     //echo " @include('background1')";
     ?>
-    @include('shoppagewrap')
-    @include('newswraper')
-    @include('ourclients')
-    @include('footer-wrapper')
+    @if($products != null)
+        @include('shoppagewrap')
+    @endif
+    @if($posts != null)
+        @include('newswraper')
+    @endif
+    @if($maps != null)
+        @include('ourclients')
+    @endif
+    @if($footer !=  null)
+        @include('footer-wrapper')
+    @endif
     <div id="back-top">
         <a title="Top of Page" href="#top"><span></span></a>
     </div>

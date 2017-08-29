@@ -14,6 +14,15 @@ class Promotion extends Model
         return $promotions;
     }
 
+    public function getPromotionAdmin(){
+        $promotions = Promotion::all();
+        $admin_show = Admin_Show::where('menu_eng','like','%promosection%')->first();
+        if($admin_show->is_show == 1) {
+            return $promotions->first();
+        }
+        return;
+    }
+
     public function getId($id){
         $promotion = Promotion::find($id);
         return $promotion;

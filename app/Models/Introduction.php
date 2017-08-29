@@ -14,6 +14,14 @@ class Introduction extends Model
         $intro = Introduction::all();
         return $intro;
     }
+    public function getIntroductionAdmin(){
+        $intro = Introduction::all();
+        $admin_show = Admin_Show::where('menu_eng','like','%pagearea%')->first();
+        if($admin_show->is_show == 1) {
+            return $intro;
+        }
+        return;
+    }
 
     public function getId($id){
         $intro = Introduction::find($id);

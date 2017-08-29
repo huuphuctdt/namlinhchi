@@ -15,6 +15,15 @@ class Product extends Model
         return $products;
     }
 
+    public function getProductAdmin(){
+        $products = Product::orderBy('created_at','desc')->get();
+        $admin_show = Admin_Show::where('menu_eng','like','%shoppagewrap%')->first();
+        if($admin_show->is_show == 1) {
+            return $products;
+        }
+        return;
+    }
+
     public function getId($id){
         $product = Product::find($id);
         return $product;

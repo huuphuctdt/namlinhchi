@@ -17,7 +17,7 @@ class IntroductionController extends Controller
     }
 
     public function getAllIntro(){
-        $intros = $this->introduction->getIntroduction();
+        $intros = $this->introduction->getIntroductionAdmin();
         return $intros;
     }
 

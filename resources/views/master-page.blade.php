@@ -563,7 +563,9 @@
 
 <body id="top" class="home blog">
 <div class="sitewrapper">
-    @include('header-page')
+    @if($header != null)
+        @include('header-page')
+    @endif
     <div class="innerbanner">
         <img src="http://zylothemesdemo.com/zyloplus/wp-content/themes/zylo-pro/images/inner-banner.jpg" alt="">
     </div>
@@ -582,7 +584,9 @@
     @if(!empty($intro_detail))
         @include('intro-detail')
     @endif
-    @include('footer-wrapper')
+    @if($footer != null)
+        @include('footer-wrapper')
+    @endif
     <div id="back-top">
         <a title="Top of Page" href="#top"><span></span></a>
     </div>

@@ -26,7 +26,12 @@ class PostController extends Controller
     }
 
     public function getAllPost(){
-        $posts = $this->post->getPost();
+        $posts = $this->post->getPostAdmin();
+        return $posts;
+    }
+
+    public function getTop2Post(){
+        $posts = $this->post->getTop2Post();
         return $posts;
     }
 

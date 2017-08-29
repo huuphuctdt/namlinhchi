@@ -15,6 +15,8 @@ class MasterController extends Controller
     private $postController;
     private $galleryController;
     private $footerController;
+    private $adminShowController;
+    private $adminCustomController;
     public function __construct(HeaderController $headerController,
                                 MenuController $menuController,
                                 SliderController $sliderController,
@@ -23,7 +25,7 @@ class MasterController extends Controller
                                 ProductController $productController,
                                 PostController $postController,
                                 GalleryController $galleryController,
-                                FooterController $footerController)
+                                FooterController $footerController, AdminShowController $adminShowController, AdminCustomController $adminCustomController)
     {
         $this->headerController = $headerController;
         $this->menuController = $menuController;
@@ -34,6 +36,8 @@ class MasterController extends Controller
         $this->postController = $postController;
         $this->galleryController = $galleryController;
         $this->footerController = $footerController;
+        $this->adminShowController = $adminShowController;
+        $this->adminCustomController = $adminCustomController;
     }
 
     public function index(){
@@ -47,6 +51,10 @@ class MasterController extends Controller
         $data["posts"] = $this->postController->getAllPost();
         $data["gallerys"] = $this->galleryController->getLimitGallery();
         $data["footer"] = $this->footerController->getAllFooter();
+        $data["maps"] = $this->adminShowController->getAllMapAdmin();
+        $data["per_slider"] = $this->adminCustomController->getCustomPerSlider();
+        $data["per_intro"] = $this->adminCustomController->getCustomPerIntro();
+        $data["top_2_post"] = $this->postController->getTop2Post();
         return view("master", $data);
     }
 }

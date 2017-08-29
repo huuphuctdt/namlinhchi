@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Admin_Show extends Model
 {
     protected $table = 'admin_show';
-    protected $fillable = ['menu', 'is_show'];
+    protected $fillable = ['menu', 'is_show', 'menu_eng'];
 
     public function getAdminShow(){
         $admin = Admin_Show::all();
@@ -28,5 +28,13 @@ class Admin_Show extends Model
         }else{
             return false;
         }
+    }
+
+    public function getMapShow(){
+        $admin_show = Admin_Show::where('menu_eng','like','%ourclients%')->first();
+        if($admin_show->is_show == 1) {
+            return $admin_show;
+        }
+        return;
     }
 }

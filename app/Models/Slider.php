@@ -14,6 +14,14 @@ class Slider extends Model
         $sliders = Slider::all();
         return $sliders;
     }
+    public function getSliderAdmin(){
+        $sliders = Slider::all();
+        $admin_show = Admin_Show::where('menu_eng','like','%slider%')->first();
+        if($admin_show->is_show == 1) {
+            return $sliders;
+        }
+        return;
+    }
 
     public function createSlider($request){
         if($request->hasFile('image')){

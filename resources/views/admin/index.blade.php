@@ -159,6 +159,9 @@
     <script src="{{ url('js/plugins/morris/morris-data.js') }}"></script>
     <script>
         jQuery(document).ready(function () {
+//            jQuery(document).on('click','.is_show',function () {
+//                jQuery('.alert_notification').delay(2000).slideUp();
+//            });
             jQuery('.alert_notification').delay(2000).slideUp();
         });
     </script>

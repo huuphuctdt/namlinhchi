@@ -12,6 +12,11 @@
         </div>
     </div>
     <div class="col-md-12">
+        @if(Session::has('flash_messages'))
+            <div class="alert alert-{!! Session::get('flash_level') !!} alert_notification">
+                {!! Session::get('flash_messages') !!}
+            </div>
+        @endif
         <hr>
         <div id="result-change"></div>
         @foreach($admins as $admin)
@@ -27,6 +32,37 @@
                 </div>
             </div>
         @endforeach
+        <form action="{{ url('admin/change-number-slider') }}" method="post">
+        {{ csrf_field() }}
+        <div class="row form-group">
+            <div class="form-group">
+                <label class="control-label col-md-2" for="pwd">Số lượng Slider</label>
+                <div class="col-md-1">
+                    <input class="form-control" id="number_slider" name="number_slider" type="number" value="{{ $per_slider }}">
+                </div>
+                <div class="col-md-1">
+                    <input type="submit" class="btn btn-primary" value="Xác nhận" name="submit">
+                </div>
+            </div>
+        </div>
+        </form>
+        <form action="{{ url('admin/change-number-intro') }}" method="post">
+        {{ csrf_field() }}
+        <div class="row form-group">
+            <div class="form-group">
+                <label class="control-label col-md-2" for="pwd">Số lượng giới thiệu</label>
+                <div class="col-md-1">
+                    <select id="number_intro" name="number_intro" class="form-control">
+                        <option value="4" @if($per_intro == 4) {{ "selected" }}@endif>4</option>
+                        <option value="8" @if($per_intro == 8) {{ "selected" }}@endif>8</option>
+                    </select>
+                </div>
+                <div class="col-md-1">
+                    <input type="submit" class="btn btn-primary" value="Xác nhận" name="submit">
+                </div>
+            </div>
+        </div>
+        </form>
         <hr>
         <div class="clearfix"></div>
     </div>
@@ -107,13 +143,19 @@
                     data: {id: id, _token : _token },
                     success: function( data, textStatus, jQxhr ){
                         if(data.result){
-                            jQuery('#result-change').append("<div class='alert alert-success alert_notification'>Cập nhật thành công</div>");
+                            jQuery('.alert_notification').remove();
+                            jQuery('#result-change').css("display","block");
+                            jQuery('#result-change').append("<div class='alert alert-success alert_notification'>Cập nhật thành công</div>").delay(2000).slideUp();
                         }else{
-                            jQuery('#result-change').append("<div class='alert alert-danger alert_notification'>Cập nhật thất bại</div>");
+                            jQuery('.alert_notification').remove();
+                            jQuery('#result-change').css("display","block");
+                            jQuery('#result-change').append("<div class='alert alert-danger alert_notification'>Cập nhật thất bại</div>").delay(2000).slideUp();
                         }
                     },
                     error: function( jqXhr, textStatus, errorThrown ){
-                        jQuery('#result-change').append("<div class='alert alert-danger alert_notification'>Cập nhật thất bại</div>");
+                        jQuery('.alert_notification').remove();
+                        jQuery('#result-change').css("display","block");
+                        jQuery('#result-change').append("<div class='alert alert-danger alert_notification'>Cập nhật thất bại</div>").delay(2000).slideUp();
                     }
                 });
             });

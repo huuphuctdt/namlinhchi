@@ -20,7 +20,7 @@ class PromotionController extends Controller
     }
 
     public function getAllPromotion(){
-        $promotions = $this->promotion->getPromotion()->first();
+        $promotions = $this->promotion->getPromotionAdmin();
         return $promotions;
     }
 

@@ -20,7 +20,7 @@ class FooterController extends Controller
     }
 
     public function getAllFooter(){
-        $footer = $this->footer->getFooter();
+        $footer = $this->footer->getFooterAdmin();
         return $footer;
     }
 

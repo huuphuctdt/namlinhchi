@@ -25,6 +25,14 @@ class Menu extends Model
         $menus = Menu::all();
         return $menus;
     }
+    public function getMenuAdmin(){
+        $menus = Menu::all();
+        $admin_show = Admin_Show::where('menu_eng','like','%header%')->first();
+        if($admin_show->is_show == 1) {
+            return $menus;
+        }
+        return;
+    }
 
     public function getId($id){
         $menu = Menu::find($id);

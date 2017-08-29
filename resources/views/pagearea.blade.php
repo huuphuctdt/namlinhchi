@@ -3,9 +3,7 @@
     <div class="container">
         <h2 class="section_title">Giới thiệu</h2>
         @foreach($intros as $intro)
-            @if($loop->iteration == 9)
-                @break;
-            @endif
+            @if($per_intro != null && $loop->index == $per_intro) @break; @endif
             <div class="fourbox @if($loop->iteration % 4 == 0) {{ 'last_column' }} @endif">
                 <div class="thumbbx">
                     <a class="hvr-rectangle-out" href="{{ url('gioi-thieu-'.$intro->id.'.html') }}">

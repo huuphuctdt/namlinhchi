@@ -34,6 +34,7 @@ class MasterPageController extends Controller
         $data["header"] = $this->headerController->getAllHeader();
         $data["gallerys"] = $this->galleryController->getAllGallery();
         $data["footer"] = $this->footerController->getAllFooter();
+        $data["top_2_post"] = $this->postController->getTop2Post();
         return view("master-page",$data);
     }
 
@@ -41,6 +42,7 @@ class MasterPageController extends Controller
         $data["header"] = $this->headerController->getAllHeader();
         $data["products"] = $this->productController->getAllProduct();
         $data["footer"] = $this->footerController->getAllFooter();
+        $data["top_2_post"] = $this->postController->getTop2Post();
         return view("master-page",$data);
     }
 
@@ -51,6 +53,7 @@ class MasterPageController extends Controller
         $data["header"] = $this->headerController->getAllHeader();
         $data["post"] = $post;
         $data["footer"] = $this->footerController->getAllFooter();
+        $data["top_2_post"] = $this->postController->getTop2Post();
         return view("master-page",$data);
     }
 
@@ -62,6 +65,7 @@ class MasterPageController extends Controller
         $data["post_all"] = $post_all;
         $data["category"] = $category;
         $data["footer"] = $this->footerController->getAllFooter();
+        $data["top_2_post"] = $this->postController->getTop2Post();
         return view("master-page",$data);
     }
 
@@ -70,6 +74,7 @@ class MasterPageController extends Controller
         $data["intro_detail"] = $intro_detail;
         $data["header"] = $this->headerController->getAllHeader();
         $data["footer"] = $this->footerController->getAllFooter();
+        $data["top_2_post"] = $this->postController->getTop2Post();
         return view("master-page",$data);
     }
 }

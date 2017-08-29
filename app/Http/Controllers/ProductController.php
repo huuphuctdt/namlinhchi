@@ -25,7 +25,7 @@ class ProductController extends Controller
     }
 
     public function getAllProduct(){
-        $products = $this->product->getProduct();
+        $products = $this->product->getProductAdmin();
         return $products;
     }
 

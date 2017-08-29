@@ -13,6 +13,15 @@ class Header extends Model
         return $header->first();
     }
 
+    public function getHeaderAdmin(){
+        $header = Header::all();
+        $admin_show = Admin_Show::where('menu_eng','like','%header%')->first();
+        if($admin_show->is_show == 1){
+            return $header->first();
+        }
+        return;
+    }
+
     public function updateHeader($request){
         if($request->hasFile('image')){
             $image_old = Header::find($request->po_header_id)->image;

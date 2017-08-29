@@ -19,6 +19,15 @@ class Post extends Model
         return $posts;
     }
 
+    public function getPostAdmin(){
+        $posts = Post::orderBy('created_at', 'desc')->get();
+        $admin_show = Admin_Show::where('menu_eng','like','%newswraper%')->first();
+        if($admin_show->is_show == 1) {
+            return $posts;
+        }
+        return;
+    }
+
     public function getId($id){
         $post = Post::find($id);
         return $post;
@@ -93,5 +102,10 @@ class Post extends Model
     public function getNamePostCategory($category){
         $name = Post_Category::where('name_slug', 'like', "%".$category."%")->first();
         return $name->name;
+    }
+
+    public function getTop2Post(){
+        $posts = Post::orderBy('created_at', 'desc')->offset(0)->limit(2)->get();
+        return $posts;
     }
 }

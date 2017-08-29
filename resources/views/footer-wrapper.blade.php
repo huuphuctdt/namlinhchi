@@ -39,24 +39,17 @@
                 <div class="widget-column-3">
                     <h5>Tin tức</h5>
                     <ul class="recent-post">
-                        <li>
-                            <a href="#">
-                                <div class="footerthumb">
-                                    <img src="{{ url('/upload/post_1.jpg') }}" alt="" width="70" height="auto">
-                                </div>
-                            </a>
-                            <strong><a href="#">Tác dụng của nấm linh chi</a></strong>
-                            <p>Nấm linh chi  là vị thuốc quý từ thiên nhiên đã được sử dụng,&#8230;</p>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="footerthumb">
-                                    <img src="{{ url('/upload/post_2.jpg') }}" alt="" width="70" height="auto">
-                                </div>
-                            </a>
-                            <strong><a href="#">Uống nước nấm linh chi mỗi ngày có tác dụng gì ?</a></strong>
-                            <p>Nấm linh chi  là vị thuốc quý từ thiên nhiên đã được sử dụng&#8230;</p>
-                        </li>
+                        @foreach($top_2_post as $item)
+                            <li>
+                                <a href="{{ url('/tin-tuc/'.str_slug($item->post_category->name).'/'.str_slug($item->name).'-'.$item->id.'.html') }}">
+                                    <div class="footerthumb">
+                                        <img src="{{ url('/upload/'.$item->image) }}" alt="" width="70" height="auto">
+                                    </div>
+                                </a>
+                                <strong><a href="#">{{ $item->name }}</a></strong>
+                                <p>{{ $item->content }}</p>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
                 <div class="widget-column-4">

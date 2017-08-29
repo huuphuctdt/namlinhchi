@@ -72,6 +72,9 @@ Route::group(['middleware' => 'auth'], function () {
         //Admin Show
         Route::get('admin-show','AdminShowController@index');
         Route::post('change-is-show','AdminShowController@change_isShow');
+        //Number Slider
+        Route::post('change-number-slider','AdminCustomController@change_number_slider');
+        Route::post('change-number-intro','AdminCustomController@change_number_intro');
     });
 });
 Auth::routes();

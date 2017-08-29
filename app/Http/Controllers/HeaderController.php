@@ -21,7 +21,7 @@ class HeaderController extends Controller
     }
 
     public function getAllHeader() {
-        $header = $this->header->getHeader();
+        $header = $this->header->getHeaderAdmin();
         return $header;
     }
 

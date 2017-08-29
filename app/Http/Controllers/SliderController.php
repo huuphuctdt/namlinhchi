@@ -17,7 +17,7 @@ class SliderController extends Controller
     }
 
     public function getAllSlider(){
-        $sliders = $this->slider->getSlider();
+        $sliders = $this->slider->getSliderAdmin();
         return $sliders;
     }
 
