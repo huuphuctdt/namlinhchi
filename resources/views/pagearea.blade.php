@@ -12,7 +12,7 @@
                 </div>
                 <div class="pagecontent">
                     <a href="{{ url('gioi-thieu-'.$intro->id.'.html') }}"><h3>{{ $intro->name }}</h3></a>
-                    <p>{{ $intro->note }}</p>
+                    <p>{{ mb_strimwidth($intro->note, 0, 85, "...") }}</p>
                     <a class="pagemore" href="{{ url('gioi-thieu-'.$intro->id.'.html') }}">Xem Thêm</a>
                 </div>
             </div>

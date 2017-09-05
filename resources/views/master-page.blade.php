@@ -558,7 +558,20 @@
             display: inline !important;
             padding: 0 !important;
             margin: 0 !important;
-        }</style>
+        }
+        #id-xem-hinh-anh:hover {
+            background-color: #202020;
+            color: #ffffff;
+        }
+        #id-xem-hinh-anh{
+            padding: 12px 30px;font: normal 16px/20px 'Roboto Condensed';text-transform: uppercase;display: inline-block;border-radius: 10px;background-color: #dd3333;
+        }
+        @media only screen and (max-device-width: 480px) {
+            .tagline {
+                color: #000000;
+            }
+        }
+    </style>
 </head>
 <body id="top" class="@if(!empty($product_detail)) {{ "product-template-default single single-product woocommerce woocommerce-page" }} @else {{ "home blog" }} @endif">
 <div class="sitewrapper">

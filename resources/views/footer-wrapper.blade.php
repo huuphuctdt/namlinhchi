@@ -18,19 +18,19 @@
                     <div class="menu-footer-menu-container">
                         <ul id="menu-footer-menu" class="menu">
                             <li id="menu-item-48" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-48">
-                                <a href="#" id="link_1">Trang chủ</a>
+                                <a href="{{ url('/') }}" id="link_1">Trang chủ</a>
                             </li>
                             <li id="menu-item-380" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-380">
-                                <a href="#" id="link_2">Giới thiệu</a>
+                                <a href="{{ url('/#link_2') }}" id="link_2">Giới thiệu</a>
                             </li>
                             <li id="menu-item-69" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-69">
-                                <a href="#" id="link_4">Sản phẩm</a>
+                                <a href="{{ url('/#link_4') }}" id="link_4">Sản phẩm</a>
                             </li>
                             <li id="menu-item-382" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-382">
-                                <a href="#" id="link_5">Tin tức</a>
+                                <a href="{{ url('/#link_5') }}" id="link_5">Tin tức</a>
                             </li>
                             <li id="menu-item-382" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-382">
-                                <a href="#" id="link_6">Bản đồ</a>
+                                <a href="{{ url('/#link_6') }}" id="link_6">Bản đồ</a>
                             </li>
                         </ul>
                     </div>
@@ -46,8 +46,8 @@
                                         <img src="{{ url('/upload/'.$item->image) }}" alt="" width="70" height="auto">
                                     </div>
                                 </a>
-                                <strong><a href="#">{{ $item->name }}</a></strong>
-                                <p>{{ $item->content }}</p>
+                                <strong><a href="#">{{ mb_strimwidth($item->name,0,65,'...') }}</a></strong>
+                                <p>{{ mb_strimwidth($item->content,0,200,'...') }}</p>
                             </li>
                         @endforeach
                     </ul>

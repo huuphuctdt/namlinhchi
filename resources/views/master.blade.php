@@ -566,6 +566,11 @@
         #id-xem-hinh-anh{
             padding: 12px 30px;font: normal 16px/20px 'Roboto Condensed';text-transform: uppercase;display: inline-block;border-radius: 10px;background-color: #dd3333;
         }
+        @media only screen and (max-device-width: 480px) {
+            .tagline {
+                color: #000000;
+            }
+        }
     </style>
 </head>
 

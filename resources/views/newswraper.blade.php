@@ -14,11 +14,11 @@
                                 <div class="postdt"><span>{{ $post->date }}</span> {{ $post->month }}</div>
                             </div>
                             <div class="newsdesc">
-                                <h6><a href="{{ url('/tin-tuc/'.str_slug($post->post_category->name).'/'.str_slug($post->name).'-'.$post->id.'.html') }}">{{ $post->name }}</a></h6>
+                                <h6><a href="{{ url('/tin-tuc/'.str_slug($post->post_category->name).'/'.str_slug($post->name).'-'.$post->id.'.html') }}">{{ mb_strimwidth($post->name,0,65,'...') }}</a></h6>
                                 <div class="PostMeta">
                                     <span>Đăng bởi : <a href="{{ url('/') }}">DNTN Tiến Đạt</a></span>
                                 </div>
-                                <p>{{ $post->content }}</p>
+                                <p>{{ mb_strimwidth($post->content,0,200,'...') }}</p>
                                 <a class="buttonstyle1" href="{{ url('/tin-tuc/'.str_slug($post->post_category->name).'/'.str_slug($post->name).'-'.$post->id.'.html') }}">Đọc thêm</a>
                             </div>
                             <div class="clear"></div>
