@@ -10,7 +10,7 @@
                     <li class="post-868 product type-product status-publish has-post-thumbnail product_cat-accessories @if($loop->iteration == 1 || ($loop->iteration / 4 == 1)) {{ 'frist' }} @endif
                     @if($loop->iteration % 4 == 0) {{ 'last' }} @endif
                             instock sale shipping-taxable purchasable product-type-simple">
-                        <a href="#" class="woocommerce-LoopProduct-link">
+                        <a href="{{ url('san-pham-'.$product->id.'.html') }}" class="woocommerce-LoopProduct-link">
                             <span class="onsale">Sale!</span>
                             <img width="250" height="300" src="{{ url('upload/'.$product->image) }}"
                                  class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="{{ $product->image }}" title="{{ $product->image }}"/>

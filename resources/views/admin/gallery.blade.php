@@ -28,7 +28,7 @@
         @foreach($gallerys as $gallery)
             <div class="row form-group">
                 <div class="form-group">
-                    <label class="control-label col-md-2" for="pwd">Hình ảnh + video công ty  {{ $loop->iteration }} : </label>
+                    <label class="control-label col-md-2" for="pwd">Hình ảnh + video công ty : </label>
                     <div class="col-md-3 {{ $errors->has('name') ? ' has-error' : '' }}">
                         <input disabled class="form-control" id="name" name="name" placeholder="Enter name..." value="{{ old('name', $gallery->name) }}">
                         @if ($errors->has('name'))
@@ -37,7 +37,7 @@
                             </span>
                         @endif
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <?php
                             $path_info = pathinfo(url('upload/'.$gallery->image));
                         ?>

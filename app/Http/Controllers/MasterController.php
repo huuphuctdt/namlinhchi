@@ -25,7 +25,9 @@ class MasterController extends Controller
                                 ProductController $productController,
                                 PostController $postController,
                                 GalleryController $galleryController,
-                                FooterController $footerController, AdminShowController $adminShowController, AdminCustomController $adminCustomController)
+                                FooterController $footerController,
+                                AdminShowController $adminShowController,
+                                AdminCustomController $adminCustomController)
     {
         $this->headerController = $headerController;
         $this->menuController = $menuController;
@@ -54,6 +56,7 @@ class MasterController extends Controller
         $data["maps"] = $this->adminShowController->getAllMapAdmin();
         $data["per_slider"] = $this->adminCustomController->getCustomPerSlider();
         $data["per_intro"] = $this->adminCustomController->getCustomPerIntro();
+        $data["per_product"] = $this->adminCustomController->getCustomPerProduct();
         $data["top_2_post"] = $this->postController->getTop2Post();
         return view("master", $data);
     }

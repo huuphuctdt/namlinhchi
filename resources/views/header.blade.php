@@ -25,11 +25,6 @@
                         <li id="menu-item-64" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-64">
                             <a id="link_2">Giới thiệu</a>
                         </li>
-                        <?php
-//                        echo "<li id="menu-item-64" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-64">
-//                            <a id="link_3">Why Choose Us</a>
-//                        </li>";
-                        ?>
                         <li id="menu-item-64" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-64">
                             <a id="link_4">Sản phẩm</a>
                         </li>
@@ -39,19 +34,18 @@
                         <li id="menu-item-64" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-64">
                             <a id="link_6">Bản đồ</a>
                         </li>
-                        {{--@foreach($menus as $menu)--}}
-                            {{--<li id="menu-item-64" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-64">--}}
-                                {{--<a id="link_{{ $loop->iteration}}" href="{{ $menu->link }}">{{ $menu->name }}</a>--}}
-                                {{--<a id="link_{{ $loop->iteration}}">{{ $menu->name }}</a>--}}
-                                {{--<ul class="sub-menu">--}}
-                                    {{--@foreach($menu->menu_child as $item)--}}
-                                        {{--<li id="menu-item-393" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-393">--}}
-                                            {{--<a href="{{ $item->link }}">{{ $item->name }}</a>--}}
-                                        {{--</li>--}}
-                                    {{--@endforeach--}}
-                                {{--</ul>--}}
-                            {{--</li>--}}
-                        {{--@endforeach--}}
+                        @foreach($menus as $menu)
+                            <li id="menu-item-64" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-64">
+                                <a id="link_{{ $loop->iteration}}">{{ $menu->name }}</a>
+                                <ul class="sub-menu">
+                                    @foreach($menu->menu_child as $item)
+                                        <li id="menu-item-393" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-393">
+                                            <a href="{{ $item->link }}">{{ $item->name }}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
             </div><!--.sitenav -->

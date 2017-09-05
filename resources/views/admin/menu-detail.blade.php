@@ -30,7 +30,7 @@
             <div class="row">
                 <div class="form-group">
                     <label class="control-label col-md-1" for="menu_name">Menu : </label>
-                    <div class="col-md-5 {{ $errors->has('menu_name') ? ' has-error' : '' }}">
+                    <div class="col-md-3 {{ $errors->has('menu_name') ? ' has-error' : '' }}">
                         <input type="text" class="form-control" id="menu_name" name="menu_name" placeholder="Enter menu name..." value="@if(old('menu_name') != ''){{ old('menu_name') }}@else{{ $menu->name }}@endif">
                         @if ($errors->has('menu_name'))
                             <span class="help-block">
@@ -38,18 +38,37 @@
                         </span>
                         @endif
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-3">
                         <div class="row">
                             @foreach($menu->menu_child as $item)
                                 <div class="col-md-12 form-group">
                                     <input type="text" class="form-control" name="menu_child_name[]" placeholder="Enter menu child name..." value="{{ $item->name }}">
                                 </div>
+                                <div class="clearfix"></div>
                             @endforeach
                             <?php $count = count($menu->menu_child); ?>
                             @for($i = $count; $i < 5; $i++)
-                                <div class="col-md-10 form-group">
+                                <div class="col-md-12 form-group">
                                     <input type="text" class="form-control" name="menu_child_name[]" placeholder="Enter menu child name...">
                                 </div>
+                                <div class="clearfix"></div>
+                            @endfor
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            @foreach($menu->menu_child as $item)
+                                <div class="col-md-12 form-group">
+                                    <input type="text" class="form-control" name="menu_child_link[]" placeholder="Enter menu child name..." value="{{ $item->link }}">
+                                </div>
+                                <div class="clearfix"></div>
+                            @endforeach
+                            <?php $count = count($menu->menu_child); ?>
+                            @for($i = $count; $i < 5; $i++)
+                                <div class="col-md-12 form-group">
+                                    <input type="text" class="form-control" name="menu_child_link[]" placeholder="Enter menu child name...">
+                                </div>
+                                <div class="clearfix"></div>
                             @endfor
                         </div>
                     </div>

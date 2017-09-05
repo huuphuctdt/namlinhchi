@@ -73,4 +73,9 @@ class ProductController extends Controller
             return redirect('admin/product')->with(['flash_level' => 'danger', 'flash_messages' => 'Cập nhật thất bại!']);
         }
     }
+
+    public function getId($id){
+        $product = $this->product->getId($id);
+        return $product;
+    }
 }

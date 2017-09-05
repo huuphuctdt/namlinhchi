@@ -11,9 +11,11 @@ use Illuminate\Support\Facades\File;
 class GalleryController extends Controller
 {
     private $gallery;
-    public function __construct()
+    private $admincustomController;
+    public function __construct(AdminCustomController $adminCustomController)
     {
         $this->gallery = new Gallery();
+        $this->admincustomController = $adminCustomController;
     }
 
     public function index(){
@@ -28,7 +30,8 @@ class GalleryController extends Controller
     }
 
     public function getLimitGallery(){
-        $gallerys = $this->gallery->getLimitGallery(8);
+        $number_limit = $this->admincustomController->getCustomPerGallery();
+        $gallerys = $this->gallery->getLimitGallery($number_limit);
         return $gallerys;
     }
 

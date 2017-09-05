@@ -560,8 +560,7 @@
             margin: 0 !important;
         }</style>
 </head>
-
-<body id="top" class="home blog">
+<body id="top" class="@if(!empty($product_detail)) {{ "product-template-default single single-product woocommerce woocommerce-page" }} @else {{ "home blog" }} @endif">
 <div class="sitewrapper">
     @if($header != null)
         @include('header-page')
@@ -583,6 +582,9 @@
     @endif
     @if(!empty($intro_detail))
         @include('intro-detail')
+    @endif
+    @if(!empty($product_detail))
+        @include('product-detail')
     @endif
     @if($footer != null)
         @include('footer-wrapper')

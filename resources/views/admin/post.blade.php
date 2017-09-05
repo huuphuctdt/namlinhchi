@@ -29,7 +29,7 @@
             <div class="row form-group">
                 <div class="form-group">
                     <label class="control-label col-md-2" for="pwd">Bài viết {{ $loop->iteration }} : </label>
-                    <div class="col-md-1">
+                    <div class="col-md-2">
                         <select name="post_category" disabled class="form-control">
                             <option value="{{ $post->post_category->id }}">{{ $post->post_category->name }}</option>
                         </select>

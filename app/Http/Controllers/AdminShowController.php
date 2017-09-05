@@ -19,8 +19,12 @@ class AdminShowController extends Controller
     public function index(){
         $number = $this->adminCustomController->getCustomPerSlider();
         $number_intro = $this->adminCustomController->getCustomPerIntro();
+        $number_gallery = $this->adminCustomController->getCustomPerGallery();
+        $number_product = $this->adminCustomController->getCustomPerProduct();
         $data['per_slider'] = $number;
         $data['per_intro'] = $number_intro;
+        $data['per_gallery'] = $number_gallery;
+        $data['per_product'] = $number_product;
         $data["admins"] = $this->admin_show->getAdminShow();
         return view("admin.admin-show",$data);
     }

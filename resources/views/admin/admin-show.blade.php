@@ -22,7 +22,7 @@
         @foreach($admins as $admin)
             <div class="row form-group">
                 <div class="form-group">
-                    <label class="control-label col-md-2" for="pwd">{{ $admin->menu }} </label>
+                    <label class="control-label col-md-4" for="pwd">{{ $admin->menu }} </label>
                     <div class="col-md-3">
                         <label class="switch">
                             <input class="is_show" id="{{ $admin->id }}" name="is_show" type="checkbox" @if($admin->is_show == 1) {{ 'checked' }} @endif>
@@ -36,7 +36,7 @@
         {{ csrf_field() }}
         <div class="row form-group">
             <div class="form-group">
-                <label class="control-label col-md-2" for="pwd">Số lượng Slider</label>
+                <label class="control-label col-md-4" for="pwd">Số lượng Slider</label>
                 <div class="col-md-1">
                     <input class="form-control" id="number_slider" name="number_slider" type="number" value="{{ $per_slider }}">
                 </div>
@@ -50,11 +50,45 @@
         {{ csrf_field() }}
         <div class="row form-group">
             <div class="form-group">
-                <label class="control-label col-md-2" for="pwd">Số lượng giới thiệu</label>
+                <label class="control-label col-md-4" for="pwd">Số lượng giới thiệu</label>
                 <div class="col-md-1">
                     <select id="number_intro" name="number_intro" class="form-control">
                         <option value="4" @if($per_intro == 4) {{ "selected" }}@endif>4</option>
                         <option value="8" @if($per_intro == 8) {{ "selected" }}@endif>8</option>
+                    </select>
+                </div>
+                <div class="col-md-1">
+                    <input type="submit" class="btn btn-primary" value="Xác nhận" name="submit">
+                </div>
+            </div>
+        </div>
+        </form>
+        <form action="{{ url('admin/change-number-gallery') }}" method="post">
+        {{ csrf_field() }}
+        <div class="row form-group">
+            <div class="form-group">
+                <label class="control-label col-md-4" for="pwd">Số lượng hình ảnh công ty</label>
+                <div class="col-md-1">
+                    <select id="number_gallery" name="number_gallery" class="form-control">
+                        <option value="4" @if($per_gallery == 4) {{ "selected" }}@endif>4</option>
+                        <option value="8" @if($per_gallery == 8) {{ "selected" }}@endif>8</option>
+                    </select>
+                </div>
+                <div class="col-md-1">
+                    <input type="submit" class="btn btn-primary" value="Xác nhận" name="submit">
+                </div>
+            </div>
+        </div>
+        </form>
+        <form action="{{ url('admin/change-number-product') }}" method="post">
+        {{ csrf_field() }}
+        <div class="row form-group">
+            <div class="form-group">
+                <label class="control-label col-md-4" for="pwd">Số lượng sản phẩm</label>
+                <div class="col-md-1">
+                    <select id="number_product" name="number_product" class="form-control">
+                        <option value="4" @if($per_product == 4) {{ "selected" }}@endif>4</option>
+                        <option value="8" @if($per_product == 8) {{ "selected" }}@endif>8</option>
                     </select>
                 </div>
                 <div class="col-md-1">

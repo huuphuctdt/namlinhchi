@@ -7,11 +7,11 @@
             <div class="woocommerce columns-4">
                 <ul class="products">
                     @foreach($products as $product)
-                        @if($loop->iteration == 9) @break; @endif
+                        @if($per_product != null && $loop->index == $per_product) @break; @endif
                         <li class="post-868 product type-product status-publish has-post-thumbnail product_cat-accessories @if($loop->iteration == 1 || $loop->iteration == 5) {{ 'frist' }} @endif
                         @if($loop->iteration == 4 || $loop->iteration == 8) {{ 'last' }} @endif
                                 instock sale shipping-taxable purchasable product-type-simple">
-                            <a href="#" class="woocommerce-LoopProduct-link">
+                            <a href="{{ url('san-pham-'.$product->id.'.html') }}" class="woocommerce-LoopProduct-link">
                                 <span class="onsale">Sale!</span>
                                 <img width="250" height="300" src="{{ url('upload/'.$product->image) }}"
                                      class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="product01" title="product01"/>

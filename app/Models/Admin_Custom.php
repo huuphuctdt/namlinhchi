@@ -30,4 +30,26 @@ class Admin_Custom extends Model
         $flag = Admin_Custom::where('name','like','%per-intro%')->update(['custom' => $number_intro]);
         return $flag;
     }
+
+    public function getCustomPerGallery(){
+        $admin = Admin_Custom::where('name','like','%per-gallery%')->first();
+        return $admin->custom;
+    }
+
+    public function setCustomPerGallery($request){
+        $number_gallery = intval(trim($request->number_gallery));
+        $flag = Admin_Custom::where('name','like','%per-gallery%')->update(['custom' => $number_gallery]);
+        return $flag;
+    }
+
+    public function setCustomPerProduct($request){
+        $number_product = intval(trim($request->number_product));
+        $flag = Admin_Custom::where('name','like','%per-product%')->update(['custom' => $number_product]);
+        return $flag;
+    }
+
+    public function getCustomPerProduct(){
+        $admin = Admin_Custom::where('name','like','%per-product%')->first();
+        return $admin->custom;
+    }
 }

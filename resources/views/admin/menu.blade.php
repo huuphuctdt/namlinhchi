@@ -54,9 +54,9 @@
                         <button onclick="return confirm('Bạn có chắc chắn muốn xoá không? \nNếu xoá sẽ mất tất cả các menu con!');" type="submit" class="btn btn-danger">Delete</button>
                     </div>
                 </form>
-                <div class="col-md-2">
-                    <input type="text" class="form-control" disabled name="po_menu_id" value="{{ $menu->link }}">
-                </div>
+                {{--<div class="col-md-2">--}}
+                    {{--<input type="text" class="form-control" disabled name="po_menu_id" value="{{ $menu->link }}">--}}
+                {{--</div>--}}
                 </div>
             </div>
             <hr>

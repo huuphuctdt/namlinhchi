@@ -39,7 +39,7 @@
                     </div>
                 </div>
                 <div class="custombtn" style="text-align:center">
-                    <a class="pagemore" href="{{ url('hinh-anh-cong-ty.html') }}" target="">Xem hình ảnh</a>
+                    <a id="id-xem-hinh-anh" class="pagemore" href="{{ url('hinh-anh-cong-ty.html') }}" target="">Xem hình ảnh</a>
                 </div>
             </div>
         </div><!-- .end section class -->

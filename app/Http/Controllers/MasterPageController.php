@@ -77,4 +77,13 @@ class MasterPageController extends Controller
         $data["top_2_post"] = $this->postController->getTop2Post();
         return view("master-page",$data);
     }
+
+    public function product_detail($id){
+        $product = $this->productController->getId($id);
+        $data["product_detail"] = $product;
+        $data["header"] = $this->headerController->getAllHeader();
+        $data["footer"] = $this->footerController->getAllFooter();
+        $data["top_2_post"] = $this->postController->getTop2Post();
+        return view("master-page",$data);
+    }
 }

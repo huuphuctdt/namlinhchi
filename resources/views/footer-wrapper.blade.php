@@ -56,7 +56,7 @@
                     <h5>Liên hệ</h5>
                     <div class="contactdetail">
                         <p><i class="fa fa-map-marker"></i> {{ $footer->address }}</p>
-                        <p><i class="fa fa-phone"></i>{{ $footer->phone }}</p>
+                        <p><i class="fa fa-phone"></i><a href="tel:01234567890">{{ $footer->phone }}</a></p>
                         <p><i class="fa fa-envelope"></i><a href="mailto:{{ $footer->email }}">{{ $footer->email }}</a></p>
                     </div>
 

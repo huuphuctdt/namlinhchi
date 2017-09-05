@@ -61,13 +61,17 @@ class Menu extends Model
     public function updateMenu($request){
         try{
             DB::beginTransaction();
-            Menu::where('id', $request->po_menu_id)->update(['name' => $request->menu_name]);
-//            if(count(array_filter($request->menu_child_name)) > 0){
+                Menu::where('id', $request->po_menu_id)->update(['name' => $request->menu_name]);
                 Menu_Child::where('menu_id', $request->po_menu_id)->delete();
-                foreach (array_filter($request->menu_child_name) as $item){
-                    Menu_Child::create(['name' => trim($item), 'menu_id' => $request->po_menu_id, 'link' => str_slug(trim($item)).".html"]);
+                $array_link = array_filter($request->menu_child_link);
+                foreach (array_filter($request->menu_child_name) as $key=>$item){
+                    if(empty($array_link)){
+                        $link = str_slug(trim($item)).".html";
+                    }else{
+                        $link = $array_link[$key];
+                    }
+                    Menu_Child::create(['name' => trim($item), 'menu_id' => $request->po_menu_id, 'link' => $link]);
                 }
-//            }
             DB::commit();
             return true;
         }catch (\Exception $exception){

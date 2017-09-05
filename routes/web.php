@@ -75,6 +75,8 @@ Route::group(['middleware' => 'auth'], function () {
         //Number Slider
         Route::post('change-number-slider','AdminCustomController@change_number_slider');
         Route::post('change-number-intro','AdminCustomController@change_number_intro');
+        Route::post('change-number-gallery','AdminCustomController@change_number_gallery');
+        Route::post('change-number-product','AdminCustomController@change_number_product');
     });
 });
 Auth::routes();
@@ -87,3 +89,4 @@ Route::get('/tin-tuc/{category}/{title}.html', 'MasterPageController@post_detail
 //Post-all
 Route::get('/tin-tuc/{category}','MasterPageController@post_all');
 Route::get('/gioi-thieu-{id}.html','MasterPageController@intro_detail');
+Route::get('/san-pham-{id}.html','MasterPageController@product_detail');

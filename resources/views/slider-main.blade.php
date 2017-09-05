@@ -11,7 +11,12 @@
     <div id="slidecaption{{ $loop->iteration }}" class="nivo-html-caption">
         <a href="{{ ($slider->read_more) != '' ? $slider->read_more : "/" }}"><h2>{{ $slider->caption }}</h2></a>
         <p>{{ $slider->note }}</p>
-        <a class="button" href="#" id="link_2">Xem thêm</a>
+        <a class="button class-xem-them" href="#" id="link_2" style="padding: 12px 30px;
+        font: 400 15px/22px 'Roboto Condensed', sans-serif;
+        text-transform: uppercase;display:
+        inline-block;border-radius: 10px;
+        background-color: #dd3333;
+        color: #ffffff">Xem thêm</a>
     </div>
 @endforeach
 </div><!-- slider -->
